@@ -32,7 +32,7 @@ void twinPrimes() {
 }
 
 //read a vector of integers and return the size of vector
-int readVector(int v[]) {
+int readVector  (int v[]) {
     int len;
     cout << "size of vector: ";
     cin >> len;
@@ -76,5 +76,5 @@ void maxFallend() {
 }
 
 int main() {
-    maxFallend();
+
 }
