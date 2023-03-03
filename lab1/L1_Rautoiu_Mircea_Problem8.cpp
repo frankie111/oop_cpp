@@ -15,8 +15,10 @@ bool isPrime(int n) {
 }
 
 //Print first n twin prime pairs
-void twinPrimes(int n) {
-    int ct = 0, first = 3;
+void twinPrimes() {
+    int n, ct = 0, first = 3;
+
+    cin >> n;
 
     while (ct < n) {
         if (isPrime(first) && isPrime(first + 2)) {
@@ -29,26 +31,42 @@ void twinPrimes(int n) {
 
 }
 
+//read a vector of integers and return the size of vector
+int readVector(int v[]) {
+    int len;
+    cout << "size of vector: ";
+    cin >> len;
+
+    for (int i = 0; i < len; i++)
+        cin >> v[i];
+
+    return len;
+}
+
 //Print the longest decreasing series in vector v
-void maxFallend(const int v[], int len_) {
-    int len = 1, start = 0, maxLen = 0, maxStart = 0;
+void maxFallend() {
+    int v[100], len_;
+
+    len_ = readVector(v);
+
+    int curr_len = 1, start = 0, maxLen = 0, maxStart = 0;
 
     for (int curr = 1; curr < len_; curr++) {
         if (v[curr] < v[curr - 1]) {
-            len++;
+            curr_len++;
         } else {
-            if (len > maxLen) {
-                maxLen = len;
+            if (curr_len > maxLen) {
+                maxLen = curr_len;
                 maxStart = start;
             }
             start = curr;
-            len = 1;
+            curr_len = 1;
         }
     }
 
     //Check one more time for maxLen in case the last series is the longest
-    if (len > maxLen) {
-        maxLen = len;
+    if (curr_len > maxLen) {
+        maxLen = curr_len;
         maxStart = start;
     }
 
@@ -58,6 +76,5 @@ void maxFallend(const int v[], int len_) {
 }
 
 int main() {
-    int v[14] = {1, 2, 6, 5, 4, 2, 1, 6, 5, 4, 3, 2, 1, 0};
-    maxFallend(v, 14);
+    maxFallend();
 }
