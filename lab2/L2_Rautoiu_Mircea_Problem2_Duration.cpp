@@ -5,6 +5,7 @@
 #include "L2_Rautoiu_Mircea_Problem2_Duration.h"
 #include <stdexcept>
 #include <utility>
+#include <sstream>
 
 Duration::Duration(float value, string unit) {
     this->value = value;
@@ -40,7 +41,16 @@ void Duration::divide(float factor) {
 }
 
 string Duration::text() {
-    return to_string(value) + " " + unit;
+    stringstream stream;
+    //Set precision to 2
+    stream.precision(2);
+    stream << fixed;
+
+    //Convert float to string
+    stream << value;
+    string str_val = stream.str();
+
+    return str_val + " " + unit;
 }
 
 int Duration::compare(const Duration &other) {
