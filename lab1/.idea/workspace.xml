@@ -20,14 +20,19 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a39a1fe5-0efa-42c3-aec0-bbabf9ee746d" name="Changes" comment="hopla">
-      <change afterPath="$PROJECT_DIR$/Problem0.cpp" afterDir="false" />
+    <list default="true" id="a39a1fe5-0efa-42c3-aec0-bbabf9ee746d" name="Changes" comment="Add Problem0">
+      <change afterPath="$PROJECT_DIR$/Problem1.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../seminar1/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../seminar1/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../seminar1/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../seminar1/.idea/seminar1.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../seminar1/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/L1_Rautoiu_Mircea_Problem8.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/L1_Rautoiu_Mircea_Problem8.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-facd4b1e0f37af4689d0.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2023-03-03T12-39-01-0664.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-lab1-Debug-60c97ecdd47674b03580.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-c4410e557a5e44bfc2bb.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2023-03-03T18-41-04-0213.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-lab1-Debug-8899f436a4c51d654c15.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab1.dir/L1_Rautoiu_Mircea_Problem8.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab1.dir/L1_Rautoiu_Mircea_Problem8.cpp.obj" afterDir="false" />
@@ -90,11 +95,6 @@
   }
 }</component>
   <component name="RunManager">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="lab1" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="lab1" TARGET_NAME="lab1" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="lab1" RUN_TARGET_NAME="lab1">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -114,7 +114,15 @@
       <workItem from="1677769366274" duration="1765000" />
       <workItem from="1677846915484" duration="1500000" />
       <workItem from="1677851571939" duration="442000" />
-      <workItem from="1677866259063" duration="5469000" />
+      <workItem from="1677866259063" duration="6540000" />
+      <workItem from="1677874986441" duration="26000" />
+      <workItem from="1678032107479" duration="849000" />
+      <workItem from="1678176887439" duration="71000" />
+      <workItem from="1678284227899" duration="3422000" />
+      <workItem from="1678344007322" duration="30000" />
+      <workItem from="1678892807341" duration="1000" />
+      <workItem from="1678894038171" duration="460000" />
+      <workItem from="1678977750676" duration="21000" />
     </task>
     <task id="LOCAL-00001" summary="finish lab 1">
       <created>1677683695975</created>
@@ -137,7 +145,21 @@
       <option name="project" value="LOCAL" />
       <updated>1677851690841</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Update gitignore">
+      <created>1677871998044</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1677871998044</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Add Problem0">
+      <created>1677872024482</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1677872024482</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -147,6 +169,8 @@
     <MESSAGE value="finish lab 1" />
     <MESSAGE value="forgot these" />
     <MESSAGE value="hopla" />
-    <option name="LAST_COMMIT_MESSAGE" value="hopla" />
+    <MESSAGE value="Update gitignore" />
+    <MESSAGE value="Add Problem0" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Problem0" />
   </component>
 </project>
