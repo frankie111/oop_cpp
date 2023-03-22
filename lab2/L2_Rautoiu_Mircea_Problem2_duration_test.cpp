@@ -21,16 +21,16 @@ bool epsilon_equals(const float x, const float y, const float epsilon = 0.001f) 
 
 void test_init_get() {
     cout << "Test Init+Get" << endl;
-    Duration dur = Duration(5.5, "min");
+    Duration dur(5.5, "min");
     assert(dur.get_value() == 5.5);
     assert(dur.get_unit() == "min");
 }
 
 void test_add() {
     cout << "Test Add" << endl;
-    Duration dur = Duration(5.5, "min");
-    Duration dur2 = Duration(2.0, "min");
-    Duration dur3 = Duration(1.5, "h");
+    Duration dur(5.5, "min");
+    Duration dur2(2.0, "min");
+    Duration dur3(1.5, "h");
 
     assert(dur.add(dur2).get_value() == 5.5 + 2.0);
 
@@ -45,9 +45,9 @@ void test_add() {
 
 void test_subtract() {
     cout << "Test Subtract" << endl;
-    Duration dur = Duration(5.5, "min");
-    Duration dur2 = Duration(2.0, "min");
-    Duration dur3 = Duration(1.5, "h");
+    Duration dur(5.5, "min");
+    Duration dur2(2.0, "min");
+    Duration dur3(1.5, "h");
 
     assert(dur.subtract(dur2).get_value() == 5.5 - 2.0);
 
@@ -62,7 +62,7 @@ void test_subtract() {
 
 void test_scale() {
     cout << "Test Scale" << endl;
-    Duration dur = Duration(5.5, "min");
+    Duration dur(5.5, "min");
     float scale_factor = 1.23;
     dur.scale(scale_factor);
     assert(epsilon_equals(dur.get_value(), 5.5 * scale_factor));
@@ -70,7 +70,7 @@ void test_scale() {
 
 void test_divide() {
     cout << "Test Divide" << endl;
-    Duration dur = Duration(5.5, "min");
+    Duration dur(5.5, "min");
     float div_factor = 1.837;
     dur.divide(div_factor);
     assert(epsilon_equals(dur.get_value(), 5.5 / div_factor));
@@ -78,17 +78,17 @@ void test_divide() {
 
 void test_text() {
     cout << "Test Text" << endl;
-    Duration dur = Duration(5.12, "min");
+    Duration dur(5.12, "min");
     string text = "5.12 min";
     assert(dur.text() == text);
 }
 
 void test_compare() {
     cout << "Test Compare" << endl;
-    Duration dur = Duration(5.5, "min");
-    Duration dur2 = Duration(2.0, "min");
-    Duration dur3 = Duration(2.0, "min");
-    Duration dur4 = Duration(1.5, "h");
+    Duration dur(5.5, "min");
+    Duration dur2(2.0, "min");
+    Duration dur3(2.0, "min");
+    Duration dur4(1.5, "h");
 
     assert(dur.compare(dur2) == 1);
     assert(dur2.compare(dur) == -1);
@@ -98,14 +98,14 @@ void test_compare() {
         dur.compare(dur4);
         assert(false);
     }
-    catch (exception &) {
+    catch (invalid_argument &) {
         assert(true);
     }
 }
 
 void test_convert() {
     cout << "Test Convert" << endl;
-    Duration dur = Duration(120, "s");
+    Duration dur(120, "s");
 
     Duration converted = dur.convert("min");
     assert(epsilon_equals(converted.get_value(), 2) && converted.get_unit() == "min");
@@ -113,7 +113,7 @@ void test_convert() {
     converted = dur.convert("h");
     assert(epsilon_equals(converted.get_value(), 120.0 / 3600.0) && converted.get_unit() == "h");
 
-    Duration dur2 = Duration(360, "min");
+    Duration dur2(360, "min");
 
     converted = dur2.convert("s");
     assert(epsilon_equals(converted.get_value(), 360.0 * 60.0) && converted.get_unit() == "s");
@@ -136,40 +136,40 @@ void test_all() {
 int main() {
     test_all();
 
-//    float d1, d2, scale;
-//    string u1, u2;
-//    cout << "Enter first duration: ";
-//    cin >> d1;
-//    cout << "Enter first unit: ";
-//    cin >> u1;
-//
-//    cout << "Enter second duration: ";
-//    cin >> d2;
-//    cin.clear();
-//    cout << "Enter second unit: ";
-//    cin >> u2;
-//
-//    cout << "Enter a scaling factor: ";
-//    cin >> scale;
-//
-//    Duration dur1(d1, u1), dur2(d2, u2);
-//
-//    cout << "\n" << dur1.text() << " + " << dur2.text() << " = " << dur1.add(dur2).text() << endl;
-//    cout << dur1.text() << " - " << dur2.text() << " = " << dur1.subtract(dur2).text();
-//
-//    cout << "\n" << dur1.text() << " * " << scale << " = ";
-//    dur1.scale(scale);
-//    cout << dur1.text();
-//
-//    cout << "\n" << dur2.text() << " * " << scale << " = ";
-//    dur2.scale(scale);
-//    cout << dur2.text() << endl;
-//
-//    int cmp = dur1.compare(dur2);
-//    if (cmp == 0)
-//        cout << dur1.text() << " == " << dur2.text();
-//    else if (cmp == -1)
-//        cout << dur1.text() << " < " << dur2.text();
-//    else if (cmp == 1)
-//        cout << dur1.text() << " > " << dur2.text();
+    float d1, d2, scale;
+    string u1, u2;
+    cout << "Enter first duration: ";
+    cin >> d1;
+    cout << "Enter first unit: ";
+    cin >> u1;
+
+    cout << "Enter second duration: ";
+    cin >> d2;
+    cin.clear();
+    cout << "Enter second unit: ";
+    cin >> u2;
+
+    cout << "Enter a scaling factor: ";
+    cin >> scale;
+
+    Duration dur1(d1, u1), dur2(d2, u2);
+
+    cout << "\n" << dur1.text() << " + " << dur2.text() << " = " << dur1.add(dur2).text() << endl;
+    cout << dur1.text() << " - " << dur2.text() << " = " << dur1.subtract(dur2).text();
+
+    cout << "\n" << dur1.text() << " * " << scale << " = ";
+    dur1.scale(scale);
+    cout << dur1.text();
+
+    cout << "\n" << dur2.text() << " * " << scale << " = ";
+    dur2.scale(scale);
+    cout << dur2.text() << endl;
+
+    int cmp = dur1.compare(dur2);
+    if (cmp == 0)
+        cout << dur1.text() << " == " << dur2.text();
+    else if (cmp == -1)
+        cout << dur1.text() << " < " << dur2.text();
+    else if (cmp == 1)
+        cout << dur1.text() << " > " << dur2.text();
 }
