@@ -28,17 +28,19 @@ public:
 
     void divide(float factor);
 
-    string text();
+    [[nodiscard]] string text(int precision = 2) const;
 
-    int compare(const Duration &other);
+    [[nodiscard]] int compare(const Duration &other) const;
 
-    Duration operator+(Duration const& other);
+    Duration operator+(Duration const &other) const;
 
-    Duration operator-(Duration const& other);
+    Duration operator-(Duration const &other) const;
 
-    Duration operator*(float factor);
+    Duration operator*(float factor) const;
 
-    Duration operator/(float factor);
+    Duration operator/(float factor) const;
+
+    [[nodiscard]] Duration convert(const string &new_unit) const;
 };
 
 

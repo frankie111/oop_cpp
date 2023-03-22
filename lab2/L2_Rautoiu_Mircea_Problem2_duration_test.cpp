@@ -5,19 +5,29 @@
 
 using namespace std;
 
-bool epsilon_equals(float x, float y, float epsilon = 0.001f){
-    if(fabs(x - y) < epsilon)
-        return true; //they are same
-    return false; //they are not same
+/**
+ * Checks if x epsilon equals y
+ *
+ * Checks if abs(x-y) < epsilon
+ * @param x, y float numbers to be compared
+ * @param epsilon precision of comparison
+ * @returns
+ */
+bool epsilon_equals(const float x, const float y, const float epsilon = 0.001f) {
+    if (fabs(x - y) < epsilon)
+        return true;
+    return false;
 }
 
 void test_init_get() {
+    cout << "Test Init+Get" << endl;
     Duration dur = Duration(5.5, "min");
     assert(dur.get_value() == 5.5);
     assert(dur.get_unit() == "min");
 }
 
 void test_add() {
+    cout << "Test Add" << endl;
     Duration dur = Duration(5.5, "min");
     Duration dur2 = Duration(2.0, "min");
     Duration dur3 = Duration(1.5, "h");
@@ -34,6 +44,7 @@ void test_add() {
 }
 
 void test_subtract() {
+    cout << "Test Subtract" << endl;
     Duration dur = Duration(5.5, "min");
     Duration dur2 = Duration(2.0, "min");
     Duration dur3 = Duration(1.5, "h");
@@ -50,27 +61,65 @@ void test_subtract() {
 }
 
 void test_scale() {
+    cout << "Test Scale" << endl;
     Duration dur = Duration(5.5, "min");
     float scale_factor = 1.23;
     dur.scale(scale_factor);
     assert(epsilon_equals(dur.get_value(), 5.5 * scale_factor));
 }
 
-void test_divide(){
+void test_divide() {
+    cout << "Test Divide" << endl;
     Duration dur = Duration(5.5, "min");
     float div_factor = 1.837;
     dur.divide(div_factor);
     assert(epsilon_equals(dur.get_value(), 5.5 / div_factor));
 }
 
-void test_text(){
+void test_text() {
+    cout << "Test Text" << endl;
     Duration dur = Duration(5.12, "min");
     string text = "5.12 min";
     assert(dur.text() == text);
 }
 
-void test_compare(){
+void test_compare() {
+    cout << "Test Compare" << endl;
+    Duration dur = Duration(5.5, "min");
+    Duration dur2 = Duration(2.0, "min");
+    Duration dur3 = Duration(2.0, "min");
+    Duration dur4 = Duration(1.5, "h");
 
+    assert(dur.compare(dur2) == 1);
+    assert(dur2.compare(dur) == -1);
+    assert(dur2.compare(dur3) == 0);
+
+    try {
+        dur.compare(dur4);
+        assert(false);
+    }
+    catch (exception &) {
+        assert(true);
+    }
+}
+
+void test_convert() {
+    cout << "Test Convert" << endl;
+    Duration dur = Duration(120, "s");
+
+    Duration converted = dur.convert("min");
+    assert(epsilon_equals(converted.get_value(), 2) && converted.get_unit() == "min");
+
+    converted = dur.convert("h");
+    assert(epsilon_equals(converted.get_value(), 120.0 / 3600.0) && converted.get_unit() == "h");
+
+    Duration dur2 = Duration(360, "min");
+
+    converted = dur2.convert("s");
+    assert(epsilon_equals(converted.get_value(), 360.0 * 60.0) && converted.get_unit() == "s");
+
+    converted = dur2.convert("h");
+    assert(epsilon_equals(converted.get_value(), 360.0 / 60.0) && converted.get_unit() == "h");
 }
 
 void test_all() {
@@ -81,6 +130,7 @@ void test_all() {
     test_divide();
     test_text();
     test_compare();
+    test_convert();
 }
 
 int main() {
@@ -122,5 +172,4 @@ int main() {
 //        cout << dur1.text() << " < " << dur2.text();
 //    else if (cmp == 1)
 //        cout << dur1.text() << " > " << dur2.text();
-
 }

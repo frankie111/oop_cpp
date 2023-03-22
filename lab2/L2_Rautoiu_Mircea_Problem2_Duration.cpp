@@ -36,14 +36,18 @@ void Duration::scale(float factor) {
     value *= factor;
 }
 
-void Duration::divide(float factor) {
+void Duration::divide(float factor){
     value /= factor;
 }
 
-string Duration::text() {
+/**
+ * Return a string representation of Duration
+ * @param precision number of decimal points to be displayed for value
+ */
+string Duration::text(int precision) const{
     stringstream stream;
-    //Set precision to 2
-    stream.precision(2);
+    //Set precision
+    stream.precision(precision);
     stream << fixed;
 
     //Convert float to string
@@ -53,7 +57,12 @@ string Duration::text() {
     return str_val + " " + unit;
 }
 
-int Duration::compare(const Duration &other) {
+/**
+ * Compare this object with another Duration object
+ *
+ * @returns 0 if this == other, -1 if this < other, 1 if this > other
+ */
+int Duration::compare(const Duration &other) const{
     if (unit != other.unit)
         throw std::invalid_argument("add(): Incompatible unit types " + unit + " != " + other.unit);
     if (value < other.value)
@@ -64,30 +73,42 @@ int Duration::compare(const Duration &other) {
         return 1;
 }
 
-Duration Duration::operator+(const Duration &other) {
-    if (unit != other.unit)
-        throw std::invalid_argument("+: Incompatible unit types " + unit + " != " + other.unit);
-
-    float res_val = value + other.value;
-    return {res_val, unit};
+Duration Duration::operator+(const Duration &other) const {
+    return add(other);
 }
 
-Duration Duration::operator-(const Duration &other) {
-    if (unit != other.unit)
-        throw std::invalid_argument("-: Incompatible unit types " + unit + " != " + other.unit);
-
-    float res_val = value - other.value;
-    return {res_val, unit};
+Duration Duration::operator-(const Duration &other) const {
+    return subtract(other);
 }
 
-Duration Duration::operator*(float factor) {
+Duration Duration::operator*(float factor) const{
     float res_val = value * factor;
     return {res_val, unit};
 }
 
-Duration Duration::operator/(float factor) {
+Duration Duration::operator/(float factor) const{
     float res_val = value / factor;
     return {res_val, unit};
 }
 
+Duration Duration::convert(const string &new_unit) const {
+    float factor = 1.0;
+    if (unit == "s") {
+        if (new_unit == "min")
+            factor = 1.0f / 60.0f;
+        else if (new_unit == "h")
+            factor = 1.0f / (60.0f * 60.0f);
+    } else if (unit == "min") {
+        if (new_unit == "s")
+            factor = 60.0;
+        else if (new_unit == "h")
+            factor = 1.0 / 60.0;
+    } else if (unit == "h") {
+        if (new_unit == "s")
+            factor = 60.0 * 60.0;
+        else if (new_unit == "min")
+            factor = 60.0;
+    }
 
+    return {value * factor, new_unit};
+}
