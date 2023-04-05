@@ -21,8 +21,21 @@ void DSM::resize() {
     elementNames = newElementNames;
 
     //resize matrix:
+    auto **newMatrix = new int *[cap];
+    for (int i = 0; i < cap; i++)
+        newMatrix[i] = new int[cap];
 
+    //copy elements to newMatrix:
+    for (int i = 0; i < size; i++)
+        std::copy(matrix[i], matrix[i] + size, newMatrix[i]);
 
+    //delete old matrix:
+    for (int i = 0; i < size; i++)
+        delete[]matrix[i];
+    delete[]matrix;
+
+    //reassign matrix pointer:
+    matrix = newMatrix;
 }
 
 DSM::DSM(string elementNames, int elementCount) {
