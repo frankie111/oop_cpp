@@ -20,28 +20,35 @@ private:
 
     void resize();
 
-    ~DSM();
+    [[nodiscard]] bool isIndexValid(int index) const;
+
+    int findElementName(string &name) const;
+
+    int addElementName(string &name);
 
 public:
-    DSM(int elemnentCount);
 
-    DSM(string elementNames, int elementCount);
+    ~DSM();
+
+    explicit DSM(int elementCount);
+
+    DSM(string elementNames[], int elementCount);
 
     DSM(const DSM &other);
 
-    int get_size() const;
+    [[nodiscard]] int get_size() const;
 
-    string getName(int index) const;
+    [[nodiscard]] string getName(int index) const;
 
-    void setElementName(int index, string elementName);
+    void setElementName(int index, string &elementName);
 
     void addLink(string fromElement, string toElement, int weight);
 
-    void deleteLink(string fromElement, string toElement);
+    bool deleteLink(string fromElement, string toElement);
 
     // Analyse Methoden
 
-    bool hasLink(string fromELement, string toElement);
+    bool hasLink(string &fromElement, string &toElement);
 
     int linkWeight(string fromElement, string toElement);
 
@@ -50,6 +57,8 @@ public:
     int countFromLinks(string elementName);
 
     int countAllLinks();
+
+    void printMatrix() const;
 };
 
 
