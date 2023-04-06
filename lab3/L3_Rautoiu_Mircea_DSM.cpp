@@ -1,40 +1,55 @@
-#include "DSM.h"
+#include "L3_Rautoiu_Mircea_DSM.h"
 
 /**
  * Constructor
  * */
-DSM::DSM(int elementCount) : cap{elementCount + 1},
-                             size{elementCount},
-                             elementNames{new string[cap]},
-                             matrix{new int *[cap]} {
+template<typename T>
+DSM<T>::DSM(int elementCount) : cap{elementCount * 2 + 1},
+                                size{elementCount},
+                                elementNames{new string[cap]},
+                                matrix{new T *[cap]} {
+    if (elementCount < 0)
+        throw invalid_argument("element count cannot be negative");
+
     // init matrix
     for (int i = 0; i < cap; i++)
-        matrix[i] = new int[cap]{};
+        matrix[i] = new T[cap]{};
 }
 
 /**
  * Constructor
  * */
-DSM::DSM(string elementNames[], int elementCount) : cap{elementCount + 1},
-                                                    size{elementCount},
-                                                    elementNames{elementNames},
-                                                    matrix{new int *[cap]} {
+template<typename T>
+DSM<T>::DSM(string elementNames[], int elementCount) : cap{elementCount * 2 + 1},
+                                                       size{elementCount} {
+    if (elementCount < 0)
+        throw invalid_argument("element count cannot be negative");
+
+    this->elementNames = new string[cap];
+    //Copy names of elements
+    for (int i = 0; i < elementCount; i++)
+        this->elementNames[i] = elementNames[i];
+
     // init matrix
+    matrix = new T *[cap];
+
     for (int i = 0; i < cap; i++)
-        matrix[i] = new int[cap]{};
+        matrix[i] = new T[cap]{};
+
 }
 
 /**
  * Copy Constructor
  * */
-DSM::DSM(const DSM &other) : cap{other.cap},
-                             size{other.size} {
-    elementNames = new string[cap];
+template<typename T>
+DSM<T>::DSM(const DSM<T> &other) : cap{other.cap},
+                                   size{other.size},
+                                   elementNames{new string[cap]},
+                                   matrix{new T *[cap]} {
 
     //init matrix
-    matrix = new int *[cap];
     for (int i = 0; i < cap; i++)
-        matrix[i] = new int[cap]{};
+        matrix[i] = new T[cap]{};
 
     //copy elementNames
     std::copy(other.elementNames, other.elementNames + size, this->elementNames);
@@ -49,12 +64,14 @@ DSM::DSM(const DSM &other) : cap{other.cap},
  *\n
  * capacity is multiplied by GROWTH_FACTOR
  */
-void DSM::resize() {
+template<typename T>
+void DSM<T>::resize() {
     if (size == cap)
         cap *= GROWTH_FACTOR;
-//    else if (size < cap / (GROWTH_FACTOR * 2))
-//        cap /= GROWTH_FACTOR;
     else return;
+
+    //    else if (size < cap / (GROWTH_FACTOR * 2))
+    //        cap /= GROWTH_FACTOR;
 
     //resize elementNames:
     auto *newElementNames = new string[cap];
@@ -63,9 +80,21 @@ void DSM::resize() {
     elementNames = newElementNames;
 
     //resize matrix:
-    auto **newMatrix = new int *[cap];
+//    auto **newMatrix = new T *[cap];
+//    for (int i = 0; i < cap; i++) {
+//        newMatrix[i] = new T[cap];
+//        for (int j = 0; j < cap; j++) {
+//            if (i < size && j < size) {
+//                newMatrix[i][j] = matrix[i][j];
+//            } else {
+//                newMatrix[i][j] = 0;
+//            }
+//        }
+//    }
+
+    T **newMatrix = new T *[cap];
     for (int i = 0; i < cap; i++)
-        newMatrix[i] = new int[cap];
+        newMatrix[i] = new T[cap];
 
     //copy elements to newMatrix:
     for (int i = 0; i < size; i++)
@@ -83,7 +112,8 @@ void DSM::resize() {
 /**
  * @returns the size of elementNames array = size of matrix
  */
-int DSM::get_size() const {
+template<typename T>
+int DSM<T>::get_size() const {
     return size;
 }
 
@@ -93,7 +123,8 @@ int DSM::get_size() const {
  * @returns name of element at index
  * @throws out_of_range if index is out of bounds
  */
-string DSM::getName(int index) const {
+template<typename T>
+string DSM<T>::getName(int index) const {
     if (!isIndexValid(index))
         throw out_of_range("getName(): Index out of range for index " + to_string(index));
 
@@ -106,7 +137,8 @@ string DSM::getName(int index) const {
  * @param elementName
  * @throws out_of_range if index is out of bounds
  */
-void DSM::setElementName(int index, string &elementName) {
+template<typename T>
+void DSM<T>::setElementName(int index, string &elementName) {
     if (!isIndexValid(index))
         throw out_of_range("getName(): Index out of range for index " + to_string(index));
 
@@ -121,17 +153,18 @@ void DSM::setElementName(int index, string &elementName) {
  * @param toElement
  * @param weight
  */
-void DSM::addLink(string fromElement, string toElement, int weight) {
-    int firstIndex = findElementName(fromElement);
-    int secondIndex = findElementName(toElement);
-
-    if (firstIndex == -1)
-        firstIndex = addElementName(fromElement);
-
-    if (secondIndex == -1)
-        secondIndex = addElementName(toElement);
-
-    matrix[firstIndex][secondIndex] = weight;
+template<typename T>
+void DSM<T>::addLink(string fromElement, string toElement, T weight) {
+//    int firstIndex = findElementName(fromElement);
+//    int secondIndex = findElementName(toElement);
+//
+//    if (firstIndex == -1)
+//        firstIndex = addElementName(fromElement);
+//
+//    if (secondIndex == -1)
+//        secondIndex = addElementName(toElement);
+//
+//    matrix[firstIndex][secondIndex] = weight;
 }
 
 /**
@@ -140,7 +173,8 @@ void DSM::addLink(string fromElement, string toElement, int weight) {
  * @param toElement
  * @returns true if link was deleted, false otherwise
  */
-bool DSM::deleteLink(string fromElement, string toElement) {
+template<typename T>
+bool DSM<T>::deleteLink(string fromElement, string toElement) {
     int firstIndex = findElementName(fromElement);
     int secondIndex = findElementName(toElement);
 
@@ -156,7 +190,8 @@ bool DSM::deleteLink(string fromElement, string toElement) {
  * @param fromElement
  * @param toElement
  */
-bool DSM::hasLink(string &fromElement, string &toElement) {
+template<typename T>
+bool DSM<T>::hasLink(string fromElement, string toElement) {
     return linkWeight(fromElement, toElement);
 }
 
@@ -165,7 +200,8 @@ bool DSM::hasLink(string &fromElement, string &toElement) {
  * @param fromElement
  * @param toElement
  */
-int DSM::linkWeight(string fromElement, string toElement) {
+template<typename T>
+T DSM<T>::linkWeight(string fromElement, string toElement) {
     int firstIndex = findElementName(fromElement);
     int secondIndex = findElementName(toElement);
 
@@ -176,7 +212,8 @@ int DSM::linkWeight(string fromElement, string toElement) {
  * @returns number of links to elementName
  * @param elementName
  */
-int DSM::countToLinks(string elementName) {
+template<typename T>
+int DSM<T>::countToLinks(string elementName) {
     int index = findElementName(elementName);
     if (index == -1)
         return -1;
@@ -192,7 +229,8 @@ int DSM::countToLinks(string elementName) {
  * @returns number of links from elementName
  * @param elementName
  */
-int DSM::countFromLinks(string elementName) {
+template<typename T>
+int DSM<T>::countFromLinks(string elementName) {
     int index = findElementName(elementName);
     if (index == -1)
         return -1;
@@ -207,7 +245,8 @@ int DSM::countFromLinks(string elementName) {
 /**
  * @returns total number of links in DSM
  */
-int DSM::countAllLinks() {
+template<typename T>
+int DSM<T>::countAllLinks() {
     int ct = 0;
     for (int i = 0; i < size; i++)
         for (int j = 0; j < size; j++)
@@ -220,7 +259,8 @@ int DSM::countAllLinks() {
  * @returns true if index is valid, false otherwise
  * @param index
  */
-bool DSM::isIndexValid(int index) const {
+template<typename T>
+bool DSM<T>::isIndexValid(int index) const {
     return index < size && index >= 0;
 }
 
@@ -228,7 +268,8 @@ bool DSM::isIndexValid(int index) const {
  * @returns index of element or -1 if it doesn't exist
  * @param name to search for
  */
-int DSM::findElementName(string &name) const {
+template<typename T>
+int DSM<T>::findElementName(string &name) const {
     for (int i = 0; i < size; i++)
         if (elementNames[i] == name)
             return i;
@@ -241,7 +282,8 @@ int DSM::findElementName(string &name) const {
  * @param name of element to be added
  * @returns index of element
  */
-int DSM::addElementName(string &name) {
+template<typename T>
+int DSM<T>::addElementName(string &name) {
     int index = findElementName(name);
 
     // If element exists return it's index
@@ -257,7 +299,8 @@ int DSM::addElementName(string &name) {
 /**
  * Prints the DSM
  */
-void DSM::printMatrix() const {
+template<typename T>
+void DSM<T>::printMatrix() const {
     for (int i = 0; i < size; i++) {
         for (int j = 0; j < size; j++)
             cout << matrix[i][j] << ' ';
@@ -268,7 +311,8 @@ void DSM::printMatrix() const {
 /**
  * Destructor
  */
-DSM::~DSM() {
+template<typename T>
+DSM<T>::~DSM() {
     delete[] elementNames;
     for (int i = 0; i < cap; i++)
         delete[] matrix[i];

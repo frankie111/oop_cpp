@@ -1,11 +1,11 @@
-#ifndef LAB3_DSM_H
-#define LAB3_DSM_H
+#ifndef LAB3_L3_RAUTOIU_MIRCEA_DSM_H
+#define LAB3_L3_RAUTOIU_MIRCEA_DSM_H
 
 #include <iostream>
 
 using namespace std;
 
-
+template<typename T>
 class DSM {
 private:
     const int GROWTH_FACTOR = 2;
@@ -13,10 +13,10 @@ private:
     int size;
 
     //dynamic array for element names;
-    string *elementNames;
+    string *elementNames{};
 
     //dsm
-    int **matrix;
+    T **matrix;
 
     void resize();
 
@@ -42,15 +42,15 @@ public:
 
     void setElementName(int index, string &elementName);
 
-    void addLink(string fromElement, string toElement, int weight);
+    void addLink(string fromElement, string toElement, T weight);
 
     bool deleteLink(string fromElement, string toElement);
 
     // Analyse Methoden
 
-    bool hasLink(string &fromElement, string &toElement);
+    bool hasLink(string fromElement, string toElement);
 
-    int linkWeight(string fromElement, string toElement);
+    T linkWeight(string fromElement, string toElement);
 
     int countToLinks(string elementName);
 
@@ -62,4 +62,4 @@ public:
 };
 
 
-#endif //LAB3_DSM_H
+#endif //LAB3_L3_RAUTOIU_MIRCEA_DSM_H
