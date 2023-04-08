@@ -1,40 +1,51 @@
 #include "L3_Rautoiu_Mircea_DSM.h"
 
+#include <utility>
+
 /**
  * Constructor
- * */
+ * Sets initial capacity to elementCount + 1
+ * @tparam T type of matrix weights
+ * @param elementCount
+ */
 template<typename T>
-DSM<T>::DSM(int elementCount) : cap{elementCount * 2 + 1},
-                                size{elementCount},
-                                elementNames{new string[cap]},
-                                matrix{new T *[cap]} {
+DSM<T>::DSM(int elementCount) {
     if (elementCount < 0)
         throw invalid_argument("element count cannot be negative");
 
+    capacity = elementCount + 1;
+    size = 0;
+    elementNames = new string[capacity];
+
     // init matrix
-    for (int i = 0; i < cap; i++)
-        matrix[i] = new T[cap]{};
+    matrix = new T *[capacity];
+    for (int i = 0; i < capacity; i++)
+        matrix[i] = new T[capacity]{};
 }
 
 /**
  * Constructor
- * */
+ * @tparam T type of matrix weights
+ * @param elementCount initial number of elements
+ * @param elementNames initial list of elements
+ */
 template<typename T>
-DSM<T>::DSM(string elementNames[], int elementCount) : cap{elementCount * 2 + 1},
-                                                       size{elementCount} {
+DSM<T>::DSM(string elementNames[], int elementCount) {
     if (elementCount < 0)
         throw invalid_argument("element count cannot be negative");
 
-    this->elementNames = new string[cap];
+    capacity = elementCount * 2;
+    size = elementCount;
+    this->elementNames = new string[capacity];
+
     //Copy names of elements
-    for (int i = 0; i < elementCount; i++)
-        this->elementNames[i] = elementNames[i];
+    std::copy(elementNames, elementNames + size, this->elementNames);
 
     // init matrix
-    matrix = new T *[cap];
+    matrix = new T *[capacity];
 
-    for (int i = 0; i < cap; i++)
-        matrix[i] = new T[cap]{};
+    for (int i = 0; i < capacity; i++)
+        matrix[i] = new T[capacity]{};
 
 }
 
@@ -42,14 +53,19 @@ DSM<T>::DSM(string elementNames[], int elementCount) : cap{elementCount * 2 + 1}
  * Copy Constructor
  * */
 template<typename T>
-DSM<T>::DSM(const DSM<T> &other) : cap{other.cap},
+DSM<T>::DSM(const DSM<T> &other) : capacity{other.capacity},
                                    size{other.size},
-                                   elementNames{new string[cap]},
-                                   matrix{new T *[cap]} {
+                                   elementNames{new string[capacity]},
+                                   matrix{new T *[capacity]} {
+
+    capacity = other.capacity;
+    size = other.size;
+    elementNames = new string[capacity];
+    matrix = new T *[capacity];
 
     //init matrix
-    for (int i = 0; i < cap; i++)
-        matrix[i] = new T[cap]{};
+    for (int i = 0; i < capacity; i++)
+        matrix[i] = new T[capacity]{};
 
     //copy elementNames
     std::copy(other.elementNames, other.elementNames + size, this->elementNames);
@@ -66,35 +82,23 @@ DSM<T>::DSM(const DSM<T> &other) : cap{other.cap},
  */
 template<typename T>
 void DSM<T>::resize() {
-    if (size == cap)
-        cap *= GROWTH_FACTOR;
+    if (size == capacity)
+        capacity *= GROWTH_FACTOR;
     else return;
 
-    //    else if (size < cap / (GROWTH_FACTOR * 2))
-    //        cap /= GROWTH_FACTOR;
+    //    else if (size < capacity / (GROWTH_FACTOR * 2))
+    //        capacity /= GROWTH_FACTOR;
 
     //resize elementNames:
-    auto *newElementNames = new string[cap];
+    auto *newElementNames = new string[capacity];
     std::copy(elementNames, elementNames + size, newElementNames);
     delete[] elementNames;
     elementNames = newElementNames;
 
-    //resize matrix:
-//    auto **newMatrix = new T *[cap];
-//    for (int i = 0; i < cap; i++) {
-//        newMatrix[i] = new T[cap];
-//        for (int j = 0; j < cap; j++) {
-//            if (i < size && j < size) {
-//                newMatrix[i][j] = matrix[i][j];
-//            } else {
-//                newMatrix[i][j] = 0;
-//            }
-//        }
-//    }
-
-    T **newMatrix = new T *[cap];
-    for (int i = 0; i < cap; i++)
-        newMatrix[i] = new T[cap];
+    //init new matrix
+    T **newMatrix = new T *[capacity];
+    for (int i = 0; i < capacity; i++)
+        newMatrix[i] = new T[capacity];
 
     //copy elements to newMatrix:
     for (int i = 0; i < size; i++)
@@ -131,6 +135,7 @@ string DSM<T>::getName(int index) const {
     return elementNames[index];
 }
 
+
 /**
  * Set element name at specific index
  * @param index
@@ -138,7 +143,7 @@ string DSM<T>::getName(int index) const {
  * @throws out_of_range if index is out of bounds
  */
 template<typename T>
-void DSM<T>::setElementName(int index, string &elementName) {
+void DSM<T>::setElementName(int index, const string &elementName) {
     if (!isIndexValid(index))
         throw out_of_range("getName(): Index out of range for index " + to_string(index));
 
@@ -155,16 +160,16 @@ void DSM<T>::setElementName(int index, string &elementName) {
  */
 template<typename T>
 void DSM<T>::addLink(string fromElement, string toElement, T weight) {
-//    int firstIndex = findElementName(fromElement);
-//    int secondIndex = findElementName(toElement);
-//
-//    if (firstIndex == -1)
-//        firstIndex = addElementName(fromElement);
-//
-//    if (secondIndex == -1)
-//        secondIndex = addElementName(toElement);
-//
-//    matrix[firstIndex][secondIndex] = weight;
+    int firstIndex = findElementName(fromElement);
+    int secondIndex = findElementName(toElement);
+
+    if (firstIndex == -1)
+        firstIndex = addElementName(fromElement);
+
+    if (secondIndex == -1)
+        secondIndex = addElementName(toElement);
+
+    matrix[firstIndex][secondIndex] = weight;
 }
 
 /**
@@ -308,13 +313,21 @@ void DSM<T>::printMatrix() const {
     }
 }
 
+template<typename T>
+void DSM<T>::printElements() const {
+    for (int i = 0; i < size; i++) {
+        cout << elementNames[i] << ' ';
+    }
+}
+
+
 /**
  * Destructor
  */
 template<typename T>
 DSM<T>::~DSM() {
     delete[] elementNames;
-    for (int i = 0; i < cap; i++)
+    for (int i = 0; i < capacity; i++)
         delete[] matrix[i];
     delete[] matrix;
 }

@@ -9,7 +9,7 @@ template<typename T>
 class DSM {
 private:
     const int GROWTH_FACTOR = 2;
-    int cap;
+    int capacity;
     int size;
 
     //dynamic array for element names;
@@ -40,7 +40,7 @@ public:
 
     [[nodiscard]] string getName(int index) const;
 
-    void setElementName(int index, string &elementName);
+    void setElementName(int index, const string &elementName);
 
     void addLink(string fromElement, string toElement, T weight);
 
@@ -48,7 +48,7 @@ public:
 
     // Analyse Methoden
 
-    bool hasLink(string fromElement, string toElement);
+    [[nodiscard]] bool hasLink(string fromElement, string toElement);
 
     T linkWeight(string fromElement, string toElement);
 
@@ -59,7 +59,8 @@ public:
     int countAllLinks();
 
     void printMatrix() const;
-};
 
+    void printElements() const;
+};
 
 #endif //LAB3_L3_RAUTOIU_MIRCEA_DSM_H
