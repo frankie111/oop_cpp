@@ -142,4 +142,5 @@ void testAll() {
 
 int main() {
     testAll();
+    system("pause");
 }

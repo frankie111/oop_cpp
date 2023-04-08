@@ -1,8 +1,5 @@
 # ninja log v5
-10	811	7012008346354790	CMakeFiles/lab2.dir/L2_Rautoiu_Mircea_Problem2_Duration.cpp.obj	ec5c7c3b0cb0797a
-929	1098	7012008349183798	lab2.exe	17ccfbe729c3be31
-0	231	7017996258012598	build.ninja	d73bb3d418b39bf2
-4	928	7012008347508046	CMakeFiles/lab2.dir/L2_Rautoiu_Mircea_Problem2_duration_test.cpp.obj	a8886a7c37b6907c
 10	886	7018017095010685	CMakeFiles/lab2.dir/L2_Rautoiu_Mircea_Problem2_Duration.cpp.obj	90c7db6b08f86943
-4	956	7018017095706008	CMakeFiles/lab2.dir/L2_Rautoiu_Mircea_Problem2_duration_test.cpp.obj	3fd85eede72a497b
 956	1183	7018017097933833	lab2.exe	303db7e65ad0cd5a
+0	231	7026842983797607	build.ninja	d73bb3d418b39bf2
+4	956	7018017095706008	CMakeFiles/lab2.dir/L2_Rautoiu_Mircea_Problem2_duration_test.cpp.obj	3fd85eede72a497b
