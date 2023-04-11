@@ -53,11 +53,15 @@ DSM<T>::DSM(string elementNames[], int elementCount) {
  * Copy Constructor
  * */
 template<typename T>
-DSM<T>::DSM(const DSM<T> &other) : capacity{other.capacity},
-                                   size{other.size},
-                                   elementNames{new string[capacity]},
-                                   matrix{new T *[capacity]} {
+DSM<T>::DSM(const DSM<T> &other) {
 
+    // Deallocate memory
+    delete[] elementNames;
+    for (int i = 0; i < capacity; i++)
+        delete[] matrix[i];
+    delete[] matrix;
+
+    // Copy all data from other
     capacity = other.capacity;
     size = other.size;
     elementNames = new string[capacity];
