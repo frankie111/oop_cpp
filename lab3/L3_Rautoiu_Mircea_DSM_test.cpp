@@ -124,7 +124,15 @@ void testCountFromLinks() {
 }
 
 void testCountAllLinks() {
+    cout << "Test Count All Links" << endl;
+    string elems[] = {"car", "engine"};
+    DSM<int> dsm(elems, 2);
 
+    dsm.addLink("car", "engine", 3);
+    dsm.addLink("car", "body", 2);
+    dsm.addLink("engine", "body", 4);
+
+    assert(dsm.countAllLinks() == 3);
 }
 
 void testAll() {
