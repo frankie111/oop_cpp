@@ -145,10 +145,40 @@ void testAll() {
     testCountToLinks();
     testCountFromLinks();
     testCountAllLinks();
+}
 
+void demo() {
+    string elems[] = {"Authentication", "User Management",
+                      "Dashboard", "Search",
+                      "Notifications", "Analytics",
+                      "Reporting"};
+    DSM<int> dsm(elems, 7);
+
+    dsm.addLink("Authentication", "Dashboard", 1);
+    dsm.addLink("Authentication", "Notifications", 1);
+    dsm.addLink("User Management", "Authentication", 1);
+    dsm.addLink("User Management", "Dashboard", 1);
+    dsm.addLink("Dashboard", "Authentication", 1);
+    dsm.addLink("Dashboard", "User Management", 1);
+    dsm.addLink("Dashboard", "Search", 1);
+    dsm.addLink("Dashboard", "Notifications", 1);
+    dsm.addLink("Dashboard", "Reporting", 1);
+    dsm.addLink("Search", "User Management", 1);
+    dsm.addLink("Search", "Dashboard", 1);
+    dsm.addLink("Search", "Notifications", 1);
+    dsm.addLink("Search", "Analytics", 1);
+    dsm.addLink("Notifications", "Authentication", 1);
+    dsm.addLink("Notifications", "Dashboard", 1);
+    dsm.addLink("Notifications", "Search", 1);
+    dsm.addLink("Analytics", "User Management", 1);
+    dsm.addLink("Analytics", "Search", 1);
+    dsm.addLink("Reporting", "Dashboard", 1);
+
+    dsm.printMatrix();
 }
 
 int main() {
-    testAll();
+//    testAll();
+    demo();
     system("pause");
 }
