@@ -1,6 +1,5 @@
 #include "L3_Rautoiu_Mircea_DSM.h"
 
-#include <utility>
 
 /**
  * Constructor
@@ -11,7 +10,7 @@
 template<typename T>
 DSM<T>::DSM(int elementCount) {
     if (elementCount < 0)
-        throw invalid_argument("element count cannot be negative");
+        throw invalid_argument("DSM(): element count cannot be negative");
 
     capacity = elementCount + 1;
     size = 0;
@@ -32,7 +31,7 @@ DSM<T>::DSM(int elementCount) {
 template<typename T>
 DSM<T>::DSM(string elementNames[], int elementCount) {
     if (elementCount < 0)
-        throw invalid_argument("element count cannot be negative");
+        throw invalid_argument("DSM(): element count cannot be negative");
 
     capacity = elementCount * 2;
     size = elementCount;
@@ -55,11 +54,13 @@ DSM<T>::DSM(string elementNames[], int elementCount) {
 template<typename T>
 DSM<T>::DSM(const DSM<T> &other) {
 
-    // Deallocate memory
-    delete[] elementNames;
-    for (int i = 0; i < capacity; i++)
-        delete[] matrix[i];
-    delete[] matrix;
+    // Deallocate memory if this is not a new object
+    if (capacity != 0) {
+        delete[] elementNames;
+        for (int i = 0; i < capacity; i++)
+            delete[] matrix[i];
+        delete[] matrix;
+    }
 
     // Copy all data from other
     capacity = other.capacity;
@@ -77,6 +78,7 @@ DSM<T>::DSM(const DSM<T> &other) {
     //copy matrix
     for (int i = 0; i < size; i++)
         std::copy(other.matrix[i], other.matrix[i] + size, this->matrix[i]);
+
 }
 
 /**
@@ -160,7 +162,7 @@ void DSM<T>::setElementName(int index, const string &elementName) {
  * Add new elements if names not found
  * @param fromElement
  * @param toElement
- * @param weight
+ * @param weight of relation
  */
 template<typename T>
 void DSM<T>::addLink(string fromElement, string toElement, T weight) {

@@ -8,9 +8,9 @@ using namespace std;
 template<typename T>
 class DSM {
 private:
-    const int GROWTH_FACTOR = 2;
-    int capacity;
-    int size;
+    static const int GROWTH_FACTOR = 2;
+    int capacity{0};
+    int size{0};
 
     //dynamic array for element names;
     string *elementNames{};

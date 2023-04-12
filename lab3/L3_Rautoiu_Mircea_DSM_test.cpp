@@ -28,6 +28,10 @@ void testCopyConstructor() {
 
     DSM<int> dsm_copy(dsm);
     assert(dsm_copy.get_size() == 5);
+
+    DSM<int> dsm2(2);
+    dsm2 = dsm_copy;
+    assert(dsm2.get_size() == 5);
 }
 
 void testInit() {
@@ -178,7 +182,7 @@ void demo() {
 }
 
 int main() {
-//    testAll();
-    demo();
+    testAll();
+//    demo();
     system("pause");
 }
