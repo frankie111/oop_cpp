@@ -5,7 +5,7 @@
  * Constructor
  * Sets initial capacity to elementCount + 1
  * @tparam T type of matrix weights
- * @param elementCount
+ * @param elementCount number of initial elements
  */
 template<typename T>
 DSM<T>::DSM(int elementCount) {
@@ -25,7 +25,7 @@ DSM<T>::DSM(int elementCount) {
 /**
  * Constructor
  * @tparam T type of matrix weights
- * @param elementCount initial number of elements
+ * @param elementCount number of initial elements
  * @param elementNames initial list of elements
  */
 template<typename T>
@@ -136,7 +136,7 @@ int DSM<T>::get_size() const {
 template<typename T>
 string DSM<T>::getName(int index) const {
     if (!isIndexValid(index))
-        throw out_of_range("getName(): Index out of range for index " + to_string(index));
+        throw out_of_range("DSM::getName(): Index out of range for index " + to_string(index));
 
     return elementNames[index];
 }
@@ -144,14 +144,14 @@ string DSM<T>::getName(int index) const {
 
 /**
  * Set element name at specific index
- * @param index
- * @param elementName
+ * @param index of element to modify
+ * @param elementName name to be set
  * @throws out_of_range if index is out of bounds
  */
 template<typename T>
 void DSM<T>::setElementName(int index, const string &elementName) {
     if (!isIndexValid(index))
-        throw out_of_range("getName(): Index out of range for index " + to_string(index));
+        throw out_of_range("DSM::SetElementName(): Index out of range for index " + to_string(index));
 
     elementNames[index] = elementName;
 }
@@ -160,8 +160,8 @@ void DSM<T>::setElementName(int index, const string &elementName) {
  * Add a new link to the DSM.
  * \n
  * Add new elements if names not found
- * @param fromElement
- * @param toElement
+ * @param fromElement first element in relation
+ * @param toElement second element in relation
  * @param weight of relation
  */
 template<typename T>
@@ -180,8 +180,8 @@ void DSM<T>::addLink(string fromElement, string toElement, T weight) {
 
 /**
  * Delete a link from DSM if existent
- * @param fromElement
- * @param toElement
+ * @param fromElement first element in relation
+ * @param toElement second element in relation
  * @returns true if link was deleted, false otherwise
  */
 template<typename T>
@@ -198,8 +198,8 @@ bool DSM<T>::deleteLink(string fromElement, string toElement) {
 
 /**
  * @returns true if there is a link between fromElement and toElementS
- * @param fromElement
- * @param toElement
+ * @param fromElement first element in relation
+ * @param toElement second element in relation
  */
 template<typename T>
 bool DSM<T>::hasLink(string fromElement, string toElement) {
@@ -208,8 +208,8 @@ bool DSM<T>::hasLink(string fromElement, string toElement) {
 
 /**
  * @returns link weight between fromElement and toElement
- * @param fromElement
- * @param toElement
+ * @param fromElement first element in relation
+ * @param toElement second element in relation
  */
 template<typename T>
 T DSM<T>::linkWeight(string fromElement, string toElement) {
@@ -221,7 +221,7 @@ T DSM<T>::linkWeight(string fromElement, string toElement) {
 
 /**
  * @returns number of links to elementName
- * @param elementName
+ * @param elementName name of element to search for as the second element in a relation
  */
 template<typename T>
 int DSM<T>::countToLinks(string elementName) {
@@ -238,7 +238,7 @@ int DSM<T>::countToLinks(string elementName) {
 
 /**
  * @returns number of links from elementName
- * @param elementName
+ * @param elementName name of element to search for as the first element in a relation
  */
 template<typename T>
 int DSM<T>::countFromLinks(string elementName) {
@@ -268,7 +268,7 @@ int DSM<T>::countAllLinks() {
 
 /**
  * @returns true if index is valid, false otherwise
- * @param index
+ * @param index to be queried
  */
 template<typename T>
 bool DSM<T>::isIndexValid(int index) const {
@@ -319,6 +319,9 @@ void DSM<T>::printMatrix() const {
     }
 }
 
+/**
+ * Prints the element names in the DSM
+ */
 template<typename T>
 void DSM<T>::printElements() const {
     for (int i = 0; i < size; i++) {
