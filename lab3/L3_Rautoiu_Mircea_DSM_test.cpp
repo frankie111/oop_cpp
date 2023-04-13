@@ -45,7 +45,7 @@ void testInit() {
 void testAdd() {
     cout << "Test Add" << endl;
     string elems[] = {"car", "engine"};
-    DSM<int> dsm(elems, 2);
+    DSM<float> dsm(elems, 2);
 
     dsm.addLink("car", "engine", 3);
     dsm.addLink("wheels", "body", 2);
