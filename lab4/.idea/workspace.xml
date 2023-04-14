@@ -20,60 +20,18 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e4c2525-1fad-4e4b-9225-2622726d624d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/lab4.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/FruitController.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controller/FruitController.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Domain/Fruit.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Domain/Fruit.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FruitApp.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Repository/FruitRepo.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Repository/FruitRepo.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UI/FruitUI.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UI/FruitUI.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/query/cache-v2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/query/cmakeFiles-v1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/query/codemodel-v2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/query/toolchains-v1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/cache-v2-2f92f6303123cc38a9b6.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/cmakeFiles-v1-fd58da9653411a1783fb.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-d30b4feab7ec7c1c3f58.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/directory-.-Debug-d0094a50bb2071803777.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2023-04-12T14-22-59-0639.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-lab4-Debug-f04df887a7c90c8cac4a.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/toolchains-v1-bccfb3f0b8ad32567324.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.25.2/CMakeCCompiler.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.25.2/CMakeCXXCompiler.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.25.2/CMakeDetermineCompilerABI_C.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.25.2/CMakeDetermineCompilerABI_CXX.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.25.2/CMakeRCCompiler.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.25.2/CMakeSystem.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.25.2/CompilerIdC/CMakeCCompilerId.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.25.2/CompilerIdC/a.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.25.2/CompilerIdCXX/CMakeCXXCompilerId.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.25.2/CompilerIdCXX/a.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cmake.check_cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/rules.ninja" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/build.ninja" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab3/L3_Rautoiu_Mircea_DSM_test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../lab3/L3_Rautoiu_Mircea_DSM_test.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab3/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/../lab3/cmake-build-debug/.ninja_deps" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab3/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/../lab3/cmake-build-debug/.ninja_log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab3/cmake-build-debug/CMakeFiles/lab3.dir/L3_Rautoiu_Mircea_DSM.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../lab3/cmake-build-debug/CMakeFiles/lab3.dir/L3_Rautoiu_Mircea_DSM.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab3/cmake-build-debug/CMakeFiles/lab3.dir/L3_Rautoiu_Mircea_DSM_test.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../lab3/cmake-build-debug/CMakeFiles/lab3.dir/L3_Rautoiu_Mircea_DSM_test.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab3/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/../lab3/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab3/cmake-build-debug/lab3.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../lab3/cmake-build-debug/lab3.exe" afterDir="false" />
+    <list default="true" id="5e4c2525-1fad-4e4b-9225-2622726d624d" name="Changes" comment="lab4: Start working on UI">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/FruitController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/FruitController.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/FruitController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/FruitController.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Fruit.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Fruit.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Fruit.h" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Fruit.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FruitApp.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/FruitApp.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Repository/FruitRepo.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Repository/FruitRepo.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Repository/FruitRepo.h" beforeDir="false" afterPath="$PROJECT_DIR$/Repository/FruitRepo.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/FruitUI.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/UI/FruitUI.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/FruitUI.h" beforeDir="false" afterPath="$PROJECT_DIR$/UI/FruitUI.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,6 +44,9 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_HOME_DIR$/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/algorithmfwd.h" root0="SKIP_INSPECTION" />
   </component>
   <component name="ProjectApplicationVersion">
     <option name="ide" value="CLion" />
@@ -131,8 +92,17 @@
       <updated>1681309079981</updated>
       <workItem from="1681309081525" duration="2495000" />
       <workItem from="1681397516591" duration="2026000" />
-      <workItem from="1681400036005" duration="4854000" />
+      <workItem from="1681400036005" duration="5711000" />
+      <workItem from="1681472588723" duration="3756000" />
     </task>
+    <task id="LOCAL-00001" summary="lab4: Start working on UI">
+      <created>1681408909671</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1681408909671</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -143,6 +113,10 @@
     <isAutomaticCheckingOnLaunch value="false" />
     <isAutomaticFoundErrors value="true" />
     <isAutomaticFoundErrors value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="lab4: Start working on UI" />
+    <option name="LAST_COMMIT_MESSAGE" value="lab4: Start working on UI" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

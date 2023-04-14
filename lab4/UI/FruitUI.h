@@ -16,6 +16,7 @@ private:
         SUBTITLE_CHAR = '-'
     };
 
+    //TODO: use smart pointer
     FruitController *controller;
 
     void printTitle(const string &title, TitleStyle tStyle = TITLE_CHAR) const;
@@ -35,7 +36,7 @@ public:
 
     void printScarceProducts() const;
 
-    void printExpiringProducts() const;
+    void sortByExpiryDate() const;
 };
 
 

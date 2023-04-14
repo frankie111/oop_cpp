@@ -8,10 +8,6 @@ string Fruit::getOrigin() const {
     return origin;
 }
 
-string Fruit::getType() const {
-    return type;
-}
-
 string Fruit::getExpiryDateStr() const {
     return ctime(&expiryDate);
 }
@@ -43,13 +39,6 @@ void Fruit::setOrigin(const string &_origin) {
         throw invalid_argument("Fruit::setOrigin(): origin cannot be an empty string");
 
     origin = _origin;
-}
-
-void Fruit::setType(const string &_type) {
-    if (_type.empty())
-        throw invalid_argument("Fruit::setType(): type cannot be an empty string");
-
-    type = _type;
 }
 
 void Fruit::setExpiryDate(time_t _expiryDate) {

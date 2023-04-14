@@ -10,7 +10,7 @@ FruitUI::FruitUI(FruitController &_controller) {
 void FruitUI::mainMenu() const {
     printTitle("Fruchteladen App");
     vector<string> options = {"hinzufugen", "loschen", "suchen", "knappe Produkte auslisten",
-                              "Ablaufende Produkte auslisten", "Beenden"};
+                              "Sortiere nach Haltbarkeitsdatum", "Beenden"};
     int option = menu("Main Menu", options);
 
     switch (option) {
@@ -27,7 +27,7 @@ void FruitUI::mainMenu() const {
             printScarceProducts();
             break;
         case 5:
-            printExpiringProducts();
+            sortByExpiryDate();
             break;
         case 6:
             cout << "App beendet!\n";
@@ -104,6 +104,6 @@ void FruitUI::printScarceProducts() const {
 
 }
 
-void FruitUI::printExpiringProducts() const {
-    printTitle("Ablaufende Produkte");
+void FruitUI::sortByExpiryDate() const {
+    printTitle("produkte nach Haltbarkeitsdatum");
 }

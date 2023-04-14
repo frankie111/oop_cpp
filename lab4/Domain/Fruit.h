@@ -11,7 +11,6 @@ class Fruit {
 private:
     string name;
     string origin;
-    string type;
     time_t expiryDate;
     int quantity;
     int price;
@@ -20,9 +19,7 @@ public:
     [[nodiscard]] string getName() const;
 
     [[nodiscard]] string getOrigin() const;
-
-    [[nodiscard]] string getType() const;
-
+    
     [[nodiscard]] string getExpiryDateStr() const;
 
     [[nodiscard]] int getQuantity() const;
@@ -32,8 +29,6 @@ public:
     void setName(const string &_name);
 
     void setOrigin(const string &_origin);
-
-    void setType(const string &_type);
 
     void setExpiryDate(time_t _expiryDate);
 
