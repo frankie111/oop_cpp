@@ -2,6 +2,7 @@
 #define LAB4_FRUITREPO_H
 
 
+#include<iostream>
 #include <vector>
 #include "../Domain/Fruit.h"
 
@@ -15,7 +16,10 @@ public:
 
     bool remove(const Fruit &fruit);
 
+    void remove(int index);
+
     vector<Fruit> getAll();
+
 };
 
 

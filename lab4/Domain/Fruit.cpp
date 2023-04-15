@@ -1,5 +1,18 @@
 #include "Fruit.h"
 
+#include <utility>
+
+Fruit::Fruit(string name,
+             string origin,
+             time_t expiryDate,
+             int quantity,
+             int price) : name(std::move(name)),
+                          origin(std::move(origin)),
+                          expiryDate(
+                                  expiryDate),
+                          quantity(quantity),
+                          price(price) {}
+
 string Fruit::getName() const {
     return name;
 }
@@ -51,4 +64,8 @@ void Fruit::setExpiryDate(const string &_expiryDate) {
 
 void Fruit::setQuantity(int _quantity) {
     quantity = _quantity;
+}
+
+bool Fruit::operator==(const Fruit &other) {
+    return name == other.name && origin == other.origin;
 }

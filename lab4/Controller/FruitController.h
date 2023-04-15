@@ -23,7 +23,9 @@ public:
 
     bool remove(const string &name, const string &origin);
 
-    vector<Fruit> find();
+    vector<Fruit> find(const string &name = "", const string &origin = "");
+
+    int getIndexOf(const Fruit &fruit);
 };
 
 
