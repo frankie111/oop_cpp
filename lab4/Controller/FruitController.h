@@ -17,7 +17,7 @@ private:
 public:
     explicit FruitController(FruitRepo &_repo);
 
-    bool add(const string &name, const string &origin,
+    void add(const string &name, const string &origin,
              const time_t &expiryDate, int quantity, int price
     );
 
@@ -25,7 +25,6 @@ public:
 
     vector<Fruit> find(const string &name = "", const string &origin = "");
 
-    int getIndexOf(const Fruit &fruit);
 };
 
 

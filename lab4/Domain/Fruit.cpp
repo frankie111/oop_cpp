@@ -69,3 +69,7 @@ void Fruit::setQuantity(int _quantity) {
 bool Fruit::operator==(const Fruit &other) {
     return name == other.name && origin == other.origin;
 }
+
+void Fruit::print() {
+    cout << name << ' ' << origin << ' ' << to_string(expiryDate) << ' ' << quantity << ' ' << price;
+}

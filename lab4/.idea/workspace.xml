@@ -20,7 +20,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e4c2525-1fad-4e4b-9225-2622726d624d" name="Changes" comment="lab4: Start working on Controller + Repo">
+    <list default="true" id="5e4c2525-1fad-4e4b-9225-2622726d624d" name="Changes" comment="lab4: work on Controller + Repo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controller/FruitController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/FruitController.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controller/FruitController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/FruitController.h" afterDir="false" />
@@ -28,6 +28,7 @@
       <change beforePath="$PROJECT_DIR$/Domain/Fruit.h" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Fruit.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Repository/FruitRepo.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Repository/FruitRepo.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Repository/FruitRepo.h" beforeDir="false" afterPath="$PROJECT_DIR$/Repository/FruitRepo.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/FruitUI.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/UI/FruitUI.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -91,7 +92,8 @@
       <workItem from="1681397516591" duration="2026000" />
       <workItem from="1681400036005" duration="5711000" />
       <workItem from="1681472588723" duration="3865000" />
-      <workItem from="1681587906331" duration="2976000" />
+      <workItem from="1681587906331" duration="3393000" />
+      <workItem from="1681663355480" duration="3324000" />
     </task>
     <task id="LOCAL-00001" summary="lab4: Start working on UI">
       <created>1681408909671</created>
@@ -107,7 +109,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681476495705</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="lab4: work on Controller + Repo">
+      <created>1681591244572</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1681591244572</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -122,7 +131,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="lab4: Start working on UI" />
     <MESSAGE value="lab4: Start working on Controller + Repo" />
-    <option name="LAST_COMMIT_MESSAGE" value="lab4: Start working on Controller + Repo" />
+    <MESSAGE value="lab4: work on Controller + Repo" />
+    <option name="LAST_COMMIT_MESSAGE" value="lab4: work on Controller + Repo" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

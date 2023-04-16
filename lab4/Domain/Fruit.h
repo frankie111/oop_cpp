@@ -16,7 +16,7 @@ private:
     int price;
 
 public:
-    Fruit(string name, string origin, time_t expiryDate, int quantity, int price);
+    Fruit(string name, string origin, time_t expiryDate = 0, int quantity = 0, int price = 0);
 
     [[nodiscard]] string getName() const;
 
@@ -41,6 +41,8 @@ public:
     void setPrice(int price);
 
     bool operator==(const Fruit& other);
+
+    void print();
 };
 
 

@@ -1,4 +1,7 @@
 #include "FruitUI.h"
+#include <sstream>
+#include <ctime>
+#include <iomanip>
 
 FruitUI::FruitUI(FruitController &_controller) {
     controller = &_controller;
@@ -84,6 +87,69 @@ int FruitUI::menu(const string &title, const vector<string> &options) const {
 
 void FruitUI::addProduct() const {
     printTitle("Produkt hinzufugen");
+    string name{}, origin{};
+    time_t expiryDate;
+    int quantity, price;
+
+    cout << "Name: ";
+    cin >> name;
+//    getline(cin, name);
+
+    while (name.empty()) {
+        cout << "Name kann nicht leer sein!\n";
+        cout << "Name: ";
+//        getline(cin, name);
+        cin >> name;
+    }
+
+    cout << "Herkunft,: ";
+//    getline(cin, origin);
+    cin >> origin;
+
+    while (origin.empty()) {
+        cout << "Herkunft, kann nicht leer sein!\n";
+        cout << "Herkunft: ";
+//        getline(cin, origin);
+        cin >> origin;
+    }
+
+    string expiry{};
+
+    cout << "Haltbarkeitsdatum, (D-M-Y): ";
+//    getline(cin, expiry);
+    cin >> expiry;
+
+    while (expiry.empty()) {
+        cout << "Haltbarkeitsdatum kann nicht leer sein!\n";
+        cout << "Haltbarkeitsdatum, (D-M-Y): ";
+//        getline(cin, expiry);
+        cin >> expiry;
+    }
+
+    tm time{};
+    stringstream ss(expiry);
+    ss >> get_time(&time, "%d-%m-%Y");
+    expiryDate = mktime(&time);
+
+    cout << "Menge: ";
+    cin >> quantity;
+
+    while (quantity == 0) {
+        cout << "Die Menge kann nicht null sein!";
+        cout << "Menge: ";
+        cin >> quantity;
+    }
+
+    cout << "Preis: ";
+    cin >> price;
+
+    while (price == 0) {
+        cout << "Preis kann nicht null sein!";
+        cout << "Preis: ";
+        cin >> price;
+    }
+
+    controller->add(name, origin, expiryDate, quantity, price);
 }
 
 void FruitUI::deleteProduct() const {
@@ -92,6 +158,11 @@ void FruitUI::deleteProduct() const {
 
 void FruitUI::searchProduct() const {
     printTitle("Produkte suchen");
+    auto matches = controller->find();
+    for (Fruit fruit: matches) {
+        fruit.print();
+        cout << endl;
+    }
 }
 
 void FruitUI::printScarceProducts() const {

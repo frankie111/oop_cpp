@@ -18,6 +18,12 @@ public:
 
     void remove(int index);
 
+    void update(int index, const Fruit &newFruit);
+
+    int getIndexOf(const Fruit &fruit);
+
+    Fruit getFruitAtIndex(int index);
+
     vector<Fruit> getAll();
 
 };
