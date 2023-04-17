@@ -1,7 +1,4 @@
 #include "FruitUI.h"
-#include <sstream>
-#include <ctime>
-#include <iomanip>
 
 FruitUI::FruitUI(FruitController &_controller) {
     controller = &_controller;
@@ -93,49 +90,40 @@ void FruitUI::addProduct() const {
 
     cout << "Name: ";
     cin >> name;
-//    getline(cin, name);
 
     while (name.empty()) {
         cout << "Name kann nicht leer sein!\n";
         cout << "Name: ";
-//        getline(cin, name);
         cin >> name;
     }
 
-    cout << "Herkunft,: ";
-//    getline(cin, origin);
+    cout << "Herkunft: ";
     cin >> origin;
 
     while (origin.empty()) {
         cout << "Herkunft, kann nicht leer sein!\n";
         cout << "Herkunft: ";
-//        getline(cin, origin);
         cin >> origin;
     }
 
     string expiry{};
 
     cout << "Haltbarkeitsdatum, (D-M-Y): ";
-//    getline(cin, expiry);
     cin >> expiry;
 
     while (expiry.empty()) {
         cout << "Haltbarkeitsdatum kann nicht leer sein!\n";
         cout << "Haltbarkeitsdatum, (D-M-Y): ";
-//        getline(cin, expiry);
         cin >> expiry;
     }
 
-    tm time{};
-    stringstream ss(expiry);
-    ss >> get_time(&time, "%d-%m-%Y");
-    expiryDate = mktime(&time);
+    expiryDate = strToTime(expiry);
 
     cout << "Menge: ";
     cin >> quantity;
 
     while (quantity == 0) {
-        cout << "Die Menge kann nicht null sein!";
+        cout << "Die Menge kann nicht null sein!\n";
         cout << "Menge: ";
         cin >> quantity;
     }
@@ -144,7 +132,7 @@ void FruitUI::addProduct() const {
     cin >> price;
 
     while (price == 0) {
-        cout << "Preis kann nicht null sein!";
+        cout << "Preis kann nicht null sein!\n";
         cout << "Preis: ";
         cin >> price;
     }
@@ -154,6 +142,32 @@ void FruitUI::addProduct() const {
 
 void FruitUI::deleteProduct() const {
     printTitle("Produkt loschen");
+    string name, origin;
+
+    cout << "Name: ";
+    cin >> name;
+
+    while (name.empty()) {
+        cout << "Name kann nicht leer sein!\n";
+        cout << "Name: ";
+        cin >> name;
+    }
+
+    cout << "Herkunft: ";
+    cin >> origin;
+
+    while (origin.empty()) {
+        cout << "Herkunft kann nicht leer sein!\n";
+        cout << "Herkunft: ";
+        cin >> origin;
+    }
+
+    bool success = controller->remove(name, origin);
+
+    if (success)
+        cout << "Frucht nicht gefunden";
+    else
+        cout << "Frucht (" << name << ' ' << origin << ") wurde geloscht!";
 }
 
 void FruitUI::searchProduct() const {
@@ -171,8 +185,6 @@ void FruitUI::printScarceProducts() const {
     int threshold;
     cout << "Grenzwert eingeben ->";
     cin >> threshold;
-
-
 }
 
 void FruitUI::sortByExpiryDate() const {

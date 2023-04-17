@@ -1,6 +1,5 @@
 #include "Fruit.h"
 
-#include <utility>
 
 Fruit::Fruit(string name,
              string origin,
@@ -59,7 +58,7 @@ void Fruit::setExpiryDate(time_t _expiryDate) {
 }
 
 void Fruit::setExpiryDate(const string &_expiryDate) {
-
+    expiryDate = strToTime(_expiryDate);
 }
 
 void Fruit::setQuantity(int _quantity) {
@@ -71,5 +70,5 @@ bool Fruit::operator==(const Fruit &other) {
 }
 
 void Fruit::print() {
-    cout << name << ' ' << origin << ' ' << to_string(expiryDate) << ' ' << quantity << ' ' << price;
+    cout << name << ' ' << origin << ' ' << timeToStr(expiryDate) << ' ' << quantity << ' ' << price;
 }

@@ -10,7 +10,7 @@ FruitController::FruitController(FruitRepo &_repo) {
 void FruitController::add(const string &name, const string &origin, const time_t &expiryDate, int quantity, int price) {
     Fruit newFruit = Fruit(name, origin, expiryDate, quantity, price);
     int index = repo->getIndexOf(newFruit);
-    if (index == -1){
+    if (index == -1) {
         repo->add(newFruit);
         return;
     }
@@ -20,10 +20,15 @@ void FruitController::add(const string &name, const string &origin, const time_t
     repo->update(index, newFruit);
 }
 
+/**
+ * Removes a Fruit item by name and origin
+ * @returns true if the operations was successful, false otherwise
+ */
 bool FruitController::remove(const string &name, const string &origin) {
     return repo->remove(Fruit(name, origin));
 }
 
-vector<Fruit> FruitController::find(const string &name, const string &origin) {
+vector<Fruit> FruitController::find(const string& input) {
+//    return vector<Fruit>{};
     return repo->getAll();
 }

@@ -79,6 +79,12 @@ build CMakeFiles/lab4.dir/Repository/FruitRepo.cpp.obj: CXX_COMPILER__lab4_Debug
   OBJECT_DIR = CMakeFiles\lab4.dir
   OBJECT_FILE_DIR = CMakeFiles\lab4.dir\Repository
 
+build CMakeFiles/lab4.dir/Utils/utils.cpp.obj: CXX_COMPILER__lab4_Debug D$:/Dev/oop_cpp/lab4/Utils/utils.cpp || cmake_object_order_depends_target_lab4
+  DEP_FILE = CMakeFiles\lab4.dir\Utils\utils.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always -std=gnu++20
+  OBJECT_DIR = CMakeFiles\lab4.dir
+  OBJECT_FILE_DIR = CMakeFiles\lab4.dir\Utils
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target lab4
@@ -87,7 +93,7 @@ build CMakeFiles/lab4.dir/Repository/FruitRepo.cpp.obj: CXX_COMPILER__lab4_Debug
 #############################################
 # Link the executable lab4.exe
 
-build lab4.exe: CXX_EXECUTABLE_LINKER__lab4_Debug CMakeFiles/lab4.dir/FruitApp.cpp.obj CMakeFiles/lab4.dir/UI/FruitUI.cpp.obj CMakeFiles/lab4.dir/Controller/FruitController.cpp.obj CMakeFiles/lab4.dir/Domain/Fruit.cpp.obj CMakeFiles/lab4.dir/Repository/FruitRepo.cpp.obj
+build lab4.exe: CXX_EXECUTABLE_LINKER__lab4_Debug CMakeFiles/lab4.dir/FruitApp.cpp.obj CMakeFiles/lab4.dir/UI/FruitUI.cpp.obj CMakeFiles/lab4.dir/Controller/FruitController.cpp.obj CMakeFiles/lab4.dir/Domain/Fruit.cpp.obj CMakeFiles/lab4.dir/Repository/FruitRepo.cpp.obj CMakeFiles/lab4.dir/Utils/utils.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\lab4.dir

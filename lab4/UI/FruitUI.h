@@ -1,9 +1,6 @@
 #ifndef LAB4_FRUITUI_H
 #define LAB4_FRUITUI_H
 
-#include <iostream>
-#include <string>
-#include <vector>
 #include "../Controller/FruitController.h"
 
 using namespace std;

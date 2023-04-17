@@ -1,8 +1,7 @@
 #ifndef LAB4_FRUIT_H
 #define LAB4_FRUIT_H
 
-#include <string>
-#include <chrono>
+#include "../Utils/utils.cpp"
 #include <iostream>
 
 using namespace std;
@@ -21,7 +20,7 @@ public:
     [[nodiscard]] string getName() const;
 
     [[nodiscard]] string getOrigin() const;
-    
+
     [[nodiscard]] string getExpiryDateStr() const;
 
     [[nodiscard]] int getQuantity() const;
@@ -40,7 +39,7 @@ public:
 
     void setPrice(int price);
 
-    bool operator==(const Fruit& other);
+    bool operator==(const Fruit &other);
 
     void print();
 };

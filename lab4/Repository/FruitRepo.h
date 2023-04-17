@@ -2,7 +2,6 @@
 #define LAB4_FRUITREPO_H
 
 
-#include<iostream>
 #include <vector>
 #include "../Domain/Fruit.h"
 

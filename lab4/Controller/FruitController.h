@@ -1,11 +1,7 @@
 #ifndef LAB4_FRUITCONTROLLER_H
 #define LAB4_FRUITCONTROLLER_H
 
-
 #include "../Repository/FruitRepo.h"
-#include "../Domain/Fruit.h"
-#include <string>
-#include <vector>
 
 using namespace std;
 
@@ -23,7 +19,7 @@ public:
 
     bool remove(const string &name, const string &origin);
 
-    vector<Fruit> find(const string &name = "", const string &origin = "");
+    vector<Fruit> find(const string& input = "");
 
 };
 
