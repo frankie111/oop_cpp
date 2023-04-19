@@ -37,9 +37,11 @@ int FruitUI::menu(const string &title, const vector<string> &options) const {
  * @param lines
  * @param maxLineWidth
  */
-void FruitUI::tableView(vector<string> &columnHeaders, vector<vector<string>> &lines, int maxLineWidth) {
+void FruitUI::tableView(vector<vector<string>> &lines, int maxLineWidth) {
     if (lines.empty())
         return;
+
+    vector<string> columnHeaders = {"Name", "Herkunft", "Haltbarkeitsdatum", "Menge", "preis"};
 
     if (columnHeaders.size() != lines[0].size())
         throw invalid_argument("utils::tableView(): table lines must have the same number of columns as the header");
@@ -68,13 +70,19 @@ void FruitUI::tableView(vector<string> &columnHeaders, vector<vector<string>> &l
     // Print table lines aligned to the headers start
     for (const vector<string> &columns: lines) {
         for (int i = 0; i < columns.size(); i++) {
-            cout << columns[i];
+            int columnSpace = int(columnHeaders[i].size()) + spacing;
+
+            // If word overflows clip it
+            if (columns[i].size() >= columnSpace)
+                cout << columns[i].substr(0, columnSpace - 3) << ".. ";
+            else
+                cout << columns[i];
 
             //Fill the remaining column space with spaces
             if (i != columns.size() - 1) {
-                int columnSpace = int(columnHeaders[i].size()) + spacing;
                 int spaceFill = columnSpace - int(columns[i].size());
-                cout << string(spaceFill, ' ');
+                if (spaceFill > 0)
+                    cout << string(spaceFill, ' ');
             }
         }
         cout << endl;
@@ -234,14 +242,18 @@ void FruitUI::searchProduct() const {
         return;
     }
 
+    // Sort matches by name attribute:
+    sort(matches.begin(), matches.end(), [](const Fruit &fruit1, const Fruit &fruit2) {
+        return fruit1.getName() < fruit2.getName();
+    });
+
     // Print matches as table
-    vector<string> columns = {"Name", "Herkunft", "Haltbarkeitsdatum", "Menge", "preis"};
     vector<vector<string>> lines;
     lines.reserve(matches.size());
     for (const Fruit &fruit: matches)
         lines.emplace_back(fruit.toList());
 
-    tableView(columns, lines, MAX_LINE_WIDTH);
+    tableView(lines, MAX_LINE_WIDTH);
 }
 
 void FruitUI::printScarceProducts() const {
@@ -250,6 +262,25 @@ void FruitUI::printScarceProducts() const {
     int threshold;
     cout << "Grenzwert eingeben ->";
     cin >> threshold;
+
+    auto matches = controller->findScarce(threshold);
+    if (matches.empty()) {
+        cout << "Keine Treffer gefunden" << endl;
+        return;
+    }
+
+    // Sort matches by name attribute:
+    sort(matches.begin(), matches.end(), [](const Fruit &fruit1, const Fruit &fruit2) {
+        return fruit1.getName() < fruit2.getName();
+    });
+
+    // Print matches as table
+    vector<vector<string>> lines;
+    lines.reserve(matches.size());
+    for (const Fruit &fruit: matches)
+        lines.emplace_back(fruit.toList());
+
+    tableView(lines, MAX_LINE_WIDTH);
 }
 
 void FruitUI::sortByExpiryDate() const {

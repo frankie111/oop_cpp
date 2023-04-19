@@ -33,7 +33,7 @@ bool FruitController::remove(const string &name, const string &origin) {
  * @param keyWord keyword to search for
  * @returns a vector of Fruit objects representing matches
  */
-vector<Fruit> FruitController::find(const string &keyWord) {
+vector<Fruit> FruitController::find(const string &keyWord) const {
     if (keyWord.empty())
         return repo->getAll();
 
@@ -47,3 +47,14 @@ vector<Fruit> FruitController::find(const string &keyWord) {
 
     return matches;
 }
+
+vector<Fruit> FruitController::findScarce(int threshold) const {
+    vector<Fruit> matches;
+
+    for (const Fruit &fruit: repo->getAll())
+        if (fruit.getQuantity() <= threshold)
+            matches.push_back(fruit);
+
+    return matches;
+}
+

@@ -20,7 +20,7 @@ private:
 
     [[nodiscard]] int menu(const string &title, const vector<string> &options) const;
 
-    static void tableView(vector<string> &columnHeaders, vector<vector<string>> &lines, int maxLineWidth) ;
+    static void tableView(vector<vector<string>> &lines, int maxLineWidth) ;
 
 public:
     explicit FruitUI(FruitController &_controller);

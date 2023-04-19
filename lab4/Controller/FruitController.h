@@ -19,7 +19,9 @@ public:
 
     bool remove(const string &name, const string &origin);
 
-    vector<Fruit> find(const string& keyWord = "");
+    [[nodiscard]] vector<Fruit> find(const string &keyWord = "") const;
+
+    [[nodiscard]] vector<Fruit> findScarce(int threshold) const;
 
 };
 
