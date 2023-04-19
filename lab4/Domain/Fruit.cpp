@@ -69,6 +69,15 @@ bool Fruit::operator==(const Fruit &other) {
     return name == other.name && origin == other.origin;
 }
 
-void Fruit::print() {
+void Fruit::print() const {
     cout << name << ' ' << origin << ' ' << timeToStr(expiryDate) << ' ' << quantity << ' ' << price;
+}
+
+string Fruit::toString() const {
+    return name + ' ' + origin + ' ' + timeToStr(expiryDate) + ' ' + to_string(quantity) + ' ' + to_string(price);
+}
+
+vector<string> Fruit::toList() const {
+    vector<string> details = {name, origin, timeToStr(expiryDate), to_string(quantity), to_string(price)};
+    return details;
 }

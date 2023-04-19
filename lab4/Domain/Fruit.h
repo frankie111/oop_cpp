@@ -41,7 +41,11 @@ public:
 
     bool operator==(const Fruit &other);
 
-    void print();
+    void print() const;
+
+    [[nodiscard]] string toString() const;
+
+    [[nodiscard]] vector<string> toList() const;
 };
 
 

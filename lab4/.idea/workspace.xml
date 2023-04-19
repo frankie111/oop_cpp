@@ -20,23 +20,14 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e4c2525-1fad-4e4b-9225-2622726d624d" name="Changes" comment="lab4: work on Add function">
-      <change afterPath="$PROJECT_DIR$/Utils/utils.cpp" afterDir="false" />
+    <list default="true" id="5e4c2525-1fad-4e4b-9225-2622726d624d" name="Changes" comment="lab4: Work on delete function">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/FruitController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/FruitController.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/FruitController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/FruitController.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domain/Fruit.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Fruit.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Domain/Fruit.h" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Fruit.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FruitApp.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/FruitApp.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Repository/FruitRepo.h" beforeDir="false" afterPath="$PROJECT_DIR$/Repository/FruitRepo.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/FruitUI.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/UI/FruitUI.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/FruitUI.h" beforeDir="false" afterPath="$PROJECT_DIR$/UI/FruitUI.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-d30b4feab7ec7c1c3f58.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2023-04-12T14-22-59-0639.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-lab4-Debug-f04df887a7c90c8cac4a.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Utils/utils.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Utils/utils.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/build.ninja" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,30 +54,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "cf.first.check.clang-format": "false",
-    "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "preferences.editor",
-    "structure.view.defaults.are.configured": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.editor&quot;,
+    &quot;structure.view.defaults.are.configured&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="lab4" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="lab4" TARGET_NAME="lab4" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="lab4" RUN_TARGET_NAME="lab4">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -108,7 +94,8 @@
       <workItem from="1681587906331" duration="3393000" />
       <workItem from="1681663355480" duration="3415000" />
       <workItem from="1681669169761" duration="1880000" />
-      <workItem from="1681761441628" duration="4283000" />
+      <workItem from="1681761441628" duration="4542000" />
+      <workItem from="1681914532627" duration="10026000" />
     </task>
     <task id="LOCAL-00001" summary="lab4: Start working on UI">
       <created>1681408909671</created>
@@ -138,7 +125,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681666794572</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="lab4: Work on delete function">
+      <created>1681765973736</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1681765973736</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -150,12 +144,24 @@
     <isAutomaticFoundErrors value="true" />
     <isAutomaticFoundErrors value="true" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="lab4: Start working on UI" />
     <MESSAGE value="lab4: Start working on Controller + Repo" />
     <MESSAGE value="lab4: work on Controller + Repo" />
     <MESSAGE value="lab4: work on Add function" />
-    <option name="LAST_COMMIT_MESSAGE" value="lab4: work on Add function" />
+    <MESSAGE value="lab4: Work on delete function" />
+    <option name="LAST_COMMIT_MESSAGE" value="lab4: Work on delete function" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

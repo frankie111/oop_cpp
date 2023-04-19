@@ -7,7 +7,7 @@ using namespace std;
 
 class FruitUI {
 private:
-    static const int MAX_LINE_WIDTH = 64;
+    static const int MAX_LINE_WIDTH = 86;
     enum TitleStyle {
         TITLE_CHAR = '=',
         SUBTITLE_CHAR = '-'
@@ -19,6 +19,8 @@ private:
     void printTitle(const string &title, TitleStyle tStyle = TITLE_CHAR) const;
 
     [[nodiscard]] int menu(const string &title, const vector<string> &options) const;
+
+    void tableView(const vector<string> &columnHeaders, const vector<vector<string>> &lines, int lineWidth) const;
 
 public:
     explicit FruitUI(FruitController &_controller);
