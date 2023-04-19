@@ -17,6 +17,8 @@ private:
 public:
     Fruit(string name, string origin, time_t expiryDate = 0, int quantity = 0, int price = 0);
 
+    Fruit(string name, string origin, const string &expiryDate, int quantity = 0, int price = 0);
+
     [[nodiscard]] string getName() const;
 
     [[nodiscard]] string getOrigin() const;

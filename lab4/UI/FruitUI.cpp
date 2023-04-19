@@ -35,14 +35,21 @@ int FruitUI::menu(const string &title, const vector<string> &options) const {
  * Print a list of strings as a table
  * @param columnHeaders
  * @param lines
- * @param lineWidth
+ * @param maxLineWidth
  */
-void FruitUI::tableView(const vector<string> &columnHeaders, const vector<vector<string>> &lines, int lineWidth) const {
+void FruitUI::tableView(vector<string> &columnHeaders, vector<vector<string>> &lines, int maxLineWidth) {
     if (lines.empty())
         return;
 
     if (columnHeaders.size() != lines[0].size())
         throw invalid_argument("utils::tableView(): table lines must have the same number of columns as the header");
+
+    columnHeaders[0].insert(0, "   ");
+
+    // Add numbering to table lines
+    for (int i = 0; i < lines.size(); i++) {
+        lines[i][0].insert(0, to_string(i + 1) + ". ");
+    }
 
     // count total number of chars in header
     int charCount = 0;
@@ -50,7 +57,7 @@ void FruitUI::tableView(const vector<string> &columnHeaders, const vector<vector
         charCount += int(column.size());
 
     // Compute spacing between column headers
-    int spacing = (lineWidth - charCount) / int(columnHeaders.size());
+    int spacing = (maxLineWidth - charCount) / int(columnHeaders.size());
 
     // Print headers using computed spacing
     for (const string &header: columnHeaders)
@@ -217,7 +224,9 @@ void FruitUI::searchProduct() const {
     printTitle("Produkte suchen");
     cout << "Schlusselwort eingeben ->";
     string searchKey;
-    cin >> searchKey;
+    cin.ignore();
+    getline(cin, searchKey);
+    cout << endl;
 
     auto matches = controller->find(searchKey);
     if (matches.empty()) {

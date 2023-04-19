@@ -12,6 +12,17 @@ Fruit::Fruit(string name,
                           quantity(quantity),
                           price(price) {}
 
+Fruit::Fruit(string name,
+             string origin,
+             const string& expiryDate,
+             int quantity,
+             int price) : name(std::move(name)),
+                          origin(std::move(origin)),
+                          expiryDate(
+                                  strToTime(expiryDate)),
+                          quantity(quantity),
+                          price(price) {}
+
 string Fruit::getName() const {
     return name;
 }

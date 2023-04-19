@@ -37,9 +37,12 @@ vector<Fruit> FruitController::find(const string &keyWord) {
     if (keyWord.empty())
         return repo->getAll();
 
+    string lowerKey = toLower(keyWord);
+
     vector<Fruit> matches;
     for (const Fruit &fruit: repo->getAll())
-        if (fruit.getName().find(keyWord) != string::npos || fruit.getOrigin().find(keyWord) != string::npos)
+        if (toLower(fruit.getName()).find(keyWord) != string::npos ||
+            toLower(fruit.getOrigin()).find(keyWord) != string::npos)
             matches.push_back(fruit);
 
     return matches;

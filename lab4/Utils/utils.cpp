@@ -89,4 +89,11 @@ static vector<string> getWords(const string &str) {
     return words;
 }
 
+static string toLower(string str) {
+    for (char &c: str)
+        c = char(tolower(c));
+
+    return str;
+}
+
 #endif //LAB4_UTILS_CPP
