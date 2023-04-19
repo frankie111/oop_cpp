@@ -28,7 +28,19 @@ bool FruitController::remove(const string &name, const string &origin) {
     return repo->remove(Fruit(name, origin));
 }
 
-vector<Fruit> FruitController::find(const string& input) {
-//    return vector<Fruit>{};
-    return repo->getAll();
+/**
+ * Find all fruit that match a certain keyword
+ * @param keyWord keyword to search for
+ * @returns a vector of Fruit objects representing matches
+ */
+vector<Fruit> FruitController::find(const string &keyWord) {
+    if (keyWord.empty())
+        return repo->getAll();
+
+    vector<Fruit> matches;
+    for (const Fruit &fruit: repo->getAll())
+        if (fruit.getName().find(keyWord) != string::npos || fruit.getOrigin().find(keyWord) != string::npos)
+            matches.push_back(fruit);
+
+    return matches;
 }

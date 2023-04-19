@@ -37,7 +37,7 @@ int FruitUI::menu(const string &title, const vector<string> &options) const {
  * @param lines
  * @param lineWidth
  */
-void FruitUI::tableView(const vector<string> &columnHeaders, const vector<vector<string>> &lines, int lineWidth) const{
+void FruitUI::tableView(const vector<string> &columnHeaders, const vector<vector<string>> &lines, int lineWidth) const {
     if (lines.empty())
         return;
 
@@ -215,7 +215,15 @@ void FruitUI::deleteProduct() const {
 
 void FruitUI::searchProduct() const {
     printTitle("Produkte suchen");
-    auto matches = controller->find();
+    cout << "Schlusselwort eingeben ->";
+    string searchKey;
+    cin >> searchKey;
+
+    auto matches = controller->find(searchKey);
+    if (matches.empty()) {
+        cout << "Keine Treffer gefunden" << endl;
+        return;
+    }
 
     // Print matches as table
     vector<string> columns = {"Name", "Herkunft", "Haltbarkeitsdatum", "Menge", "preis"};
