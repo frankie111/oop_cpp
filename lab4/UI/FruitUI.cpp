@@ -1,8 +1,8 @@
 #include "FruitUI.h"
 #include "Widgets.cpp"
 
-FruitUI::FruitUI(FruitController &_controller) {
-    controller = &_controller;
+FruitUI::FruitUI(unique_ptr<FruitController> _controller) {
+    controller = std::move(_controller);
 }
 
 /**

@@ -10,12 +10,11 @@ class FruitUI {
 
 private:
 
-    //TODO: use smart pointer
-    FruitController *controller;
+    unique_ptr<FruitController> controller;
     static const int MAX_LINE_WIDTH = 100;
 
 public:
-    explicit FruitUI(FruitController &_controller);
+    explicit FruitUI(unique_ptr<FruitController> _controller);
 
     void mainMenu() const;
 

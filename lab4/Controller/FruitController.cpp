@@ -1,7 +1,7 @@
 #include "FruitController.h"
 
-FruitController::FruitController(FruitRepo &_repo) {
-    repo = &_repo;
+FruitController::FruitController(unique_ptr<FruitRepo> _repo) {
+    repo = std::move(_repo);
 }
 
 /**

@@ -7,11 +7,10 @@ using namespace std;
 
 class FruitController {
 private:
-    //TODO: use smart pointer
-    FruitRepo *repo;
+    unique_ptr<FruitRepo> repo;
 
 public:
-    explicit FruitController(FruitRepo &_repo);
+    explicit FruitController(unique_ptr<FruitRepo> _repo);
 
     void add(const string &name, const string &origin,
              const time_t &expiryDate, int quantity, int price
