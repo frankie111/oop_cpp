@@ -14,7 +14,7 @@ Fruit::Fruit(string name,
 
 Fruit::Fruit(string name,
              string origin,
-             const string& expiryDate,
+             const string &expiryDate,
              int quantity,
              int price) : name(std::move(name)),
                           origin(std::move(origin)),
@@ -29,6 +29,10 @@ string Fruit::getName() const {
 
 string Fruit::getOrigin() const {
     return origin;
+}
+
+time_t Fruit::getExpiryDate() const {
+    return expiryDate;
 }
 
 string Fruit::getExpiryDateStr() const {
@@ -76,8 +80,12 @@ void Fruit::setQuantity(int _quantity) {
     quantity = _quantity;
 }
 
-bool Fruit::operator==(const Fruit &other) {
-    return name == other.name && origin == other.origin;
+bool Fruit::operator==(const Fruit &other) const{
+    return toLower(name) == toLower(other.name) && toLower(origin) == toLower(other.origin);
+}
+
+bool Fruit::operator!=(const Fruit &other) const {
+    return !(*this == other);
 }
 
 void Fruit::print() const {

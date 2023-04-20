@@ -23,6 +23,8 @@ public:
 
     [[nodiscard]] string getOrigin() const;
 
+    [[nodiscard]] time_t getExpiryDate() const;
+
     [[nodiscard]] string getExpiryDateStr() const;
 
     [[nodiscard]] int getQuantity() const;
@@ -41,7 +43,9 @@ public:
 
     void setPrice(int price);
 
-    bool operator==(const Fruit &other);
+    bool operator==(const Fruit &other) const;
+
+    bool operator!=(const Fruit &other) const;
 
     void print() const;
 

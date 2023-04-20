@@ -6,21 +6,13 @@
 using namespace std;
 
 class FruitUI {
+    friend class Widgets;
+
 private:
-    static const int MAX_LINE_WIDTH = 100;
-    enum TitleStyle {
-        TITLE_CHAR = '=',
-        SUBTITLE_CHAR = '-'
-    };
 
     //TODO: use smart pointer
     FruitController *controller;
-
-    void printTitle(const string &title, TitleStyle tStyle = TITLE_CHAR) const;
-
-    [[nodiscard]] int menu(const string &title, const vector<string> &options) const;
-
-    static void tableView(vector<vector<string>> &lines, int maxLineWidth) ;
+    static const int MAX_LINE_WIDTH = 100;
 
 public:
     explicit FruitUI(FruitController &_controller);

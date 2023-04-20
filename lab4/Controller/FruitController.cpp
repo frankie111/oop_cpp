@@ -31,23 +31,35 @@ bool FruitController::remove(const string &name, const string &origin) {
 /**
  * Find all fruit that match a certain keyword
  * @param keyWord keyword to search for
- * @returns a vector of Fruit objects representing matches
+ * @returns a vector of Fruit objects representing matches sorted by names
  */
 vector<Fruit> FruitController::find(const string &keyWord) const {
-    if (keyWord.empty())
-        return repo->getAll();
-
-    string lowerKey = toLower(keyWord);
-
     vector<Fruit> matches;
-    for (const Fruit &fruit: repo->getAll())
-        if (toLower(fruit.getName()).find(keyWord) != string::npos ||
-            toLower(fruit.getOrigin()).find(keyWord) != string::npos)
-            matches.push_back(fruit);
+
+    if (keyWord.empty())
+        matches = repo->getAll();
+    else {
+        string lowerKey = toLower(keyWord);
+
+        for (const Fruit &fruit: repo->getAll())
+            if (toLower(fruit.getName()).find(lowerKey) != string::npos ||
+                toLower(fruit.getOrigin()).find(lowerKey) != string::npos)
+                matches.push_back(fruit);
+    }
+
+    // Sort matches by name attribute:
+    sort(matches.begin(), matches.end(), [](const Fruit &fruit1, const Fruit &fruit2) {
+        return fruit1.getName() < fruit2.getName();
+    });
 
     return matches;
 }
 
+/**
+ * Find all fruit with a quantity less than or equal to a specified threshold
+ * @param threshold
+ * @returns a vector of Fruit objects sorted by names
+ */
 vector<Fruit> FruitController::findScarce(int threshold) const {
     vector<Fruit> matches;
 
@@ -55,6 +67,27 @@ vector<Fruit> FruitController::findScarce(int threshold) const {
         if (fruit.getQuantity() <= threshold)
             matches.push_back(fruit);
 
+    // Sort matches by name attribute:
+    sort(matches.begin(), matches.end(), [](const Fruit &fruit1, const Fruit &fruit2) {
+        return fruit1.getName() < fruit2.getName();
+    });
+
     return matches;
 }
+
+/**
+ * @returns a vector of all Fruit objects sorted by expiry dates
+ */
+vector<Fruit> FruitController::sortByExpiryDate() const {
+    vector<Fruit> list = repo->getAll();
+
+    // Sort list by expiry date:
+    sort(list.begin(), list.end(), [](const Fruit &fruit1, const Fruit &fruit2) {
+        return fruit1.getExpiryDate() < fruit2.getExpiryDate();
+    });
+
+    return list;
+}
+
+
 

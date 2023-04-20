@@ -1,102 +1,18 @@
 #include "FruitUI.h"
+#include "Widgets.cpp"
 
 FruitUI::FruitUI(FruitController &_controller) {
     controller = &_controller;
 }
 
 /**
- * Print a menu as a numbered list of options
- * @returns the selected option as int
- * @param title
- * @param options
- */
-int FruitUI::menu(const string &title, const vector<string> &options) const {
-    printTitle(title, SUBTITLE_CHAR);
-
-    for (int i = 0; i < options.size(); i++) {
-        cout << i + 1 << ". " + options[i] << endl;
-    }
-
-    printTitle(string(title.size(), '~'), SUBTITLE_CHAR);
-    cout << "->";
-
-    int option;
-    cin >> option;
-
-    if (option < 1 || option > options.size()) {
-        cout << "Invalid option\n";
-        option = menu(title, options);
-    }
-
-    return option;
-}
-
-/**
- * Print a list of strings as a table
- * @param columnHeaders
- * @param lines
- * @param maxLineWidth
- */
-void FruitUI::tableView(vector<vector<string>> &lines, int maxLineWidth) {
-    if (lines.empty())
-        return;
-
-    vector<string> columnHeaders = {"Name", "Herkunft", "Haltbarkeitsdatum", "Menge", "preis"};
-
-    if (columnHeaders.size() != lines[0].size())
-        throw invalid_argument("utils::tableView(): table lines must have the same number of columns as the header");
-
-    columnHeaders[0].insert(0, "   ");
-
-    // Add numbering to table lines
-    for (int i = 0; i < lines.size(); i++) {
-        lines[i][0].insert(0, to_string(i + 1) + ". ");
-    }
-
-    // count total number of chars in header
-    int charCount = 0;
-    for (const string &column: columnHeaders)
-        charCount += int(column.size());
-
-    // Compute spacing between column headers
-    int spacing = (maxLineWidth - charCount) / int(columnHeaders.size());
-
-    // Print headers using computed spacing
-    for (const string &header: columnHeaders)
-        cout << header << string(spacing, ' ');
-
-    cout << endl;
-
-    // Print table lines aligned to the headers start
-    for (const vector<string> &columns: lines) {
-        for (int i = 0; i < columns.size(); i++) {
-            int columnSpace = int(columnHeaders[i].size()) + spacing;
-
-            // If word overflows clip it
-            if (columns[i].size() >= columnSpace)
-                cout << columns[i].substr(0, columnSpace - 3) << ".. ";
-            else
-                cout << columns[i];
-
-            //Fill the remaining column space with spaces
-            if (i != columns.size() - 1) {
-                int spaceFill = columnSpace - int(columns[i].size());
-                if (spaceFill > 0)
-                    cout << string(spaceFill, ' ');
-            }
-        }
-        cout << endl;
-    }
-}
-
-/**
  * Entry point of FruitUI
  */
 void FruitUI::mainMenu() const {
-    printTitle("Fruchteladen App");
+    Widgets::printTitle("Fruchteladen App");
     vector<string> options = {"hinzufugen", "loschen", "suchen", "knappe Produkte auslisten",
                               "Sortiere nach Haltbarkeitsdatum", "Beenden"};
-    int option = menu("Main Menu", options);
+    int option = Widgets::menu("Main Menu", options);
 
     switch (option) {
         case 1:
@@ -124,44 +40,31 @@ void FruitUI::mainMenu() const {
     mainMenu();
 }
 
-/**
- * Print a printTitle on one line with TITLE_CHAR as highlighting
- * @param title printTitle to display in the centre of the line
- */
-void FruitUI::printTitle(const string &title, TitleStyle tStyle) const {
-    int half = (MAX_LINE_WIDTH - int(title.size()) - 2) / 2;
-    string str(half, tStyle);
-    str += ' ' + title + ' ';
-    str += string(half, (tStyle));
-
-    while (str.size() < MAX_LINE_WIDTH)
-        str += char(tStyle);
-
-    cout << str << endl;
-}
-
 void FruitUI::addProduct() const {
-    printTitle("Produkt hinzufugen");
+    Widgets::printTitle("Produkt hinzufugen");
     string name{}, origin{};
     time_t expiryDate;
     int quantity, price;
 
     cout << "Name: ";
-    cin >> name;
+    cin.ignore();
+    getline(cin, name);
 
     while (name.empty()) {
         cout << "Name kann nicht leer sein!\n";
         cout << "Name: ";
-        cin >> name;
+        cin.ignore();
+        getline(cin, name);
     }
 
     cout << "Herkunft: ";
-    cin >> origin;
+    getline(cin, origin);
 
     while (origin.empty()) {
         cout << "Herkunft, kann nicht leer sein!\n";
         cout << "Herkunft: ";
-        cin >> origin;
+        cin.ignore();
+        getline(cin, origin);
     }
 
     string expiry{};
@@ -199,37 +102,42 @@ void FruitUI::addProduct() const {
 }
 
 void FruitUI::deleteProduct() const {
-    printTitle("Produkt loschen");
+    Widgets::printTitle("Produkt loschen");
     string name, origin;
 
     cout << "Name: ";
-    cin >> name;
+    cin.ignore();
+    getline(cin, name);
 
     while (name.empty()) {
         cout << "Name kann nicht leer sein!\n";
         cout << "Name: ";
-        cin >> name;
+        getline(cin, name);
     }
 
     cout << "Herkunft: ";
-    cin >> origin;
+    getline(cin, origin);
 
     while (origin.empty()) {
         cout << "Herkunft kann nicht leer sein!\n";
         cout << "Herkunft: ";
-        cin >> origin;
+        cin.ignore();
+        getline(cin, origin);
     }
 
     bool success = controller->remove(name, origin);
 
+    cout << name << ' ' << origin << endl;
+
     if (success)
-        cout << "Frucht nicht gefunden";
-    else
         cout << "Frucht (" << name << ", " << origin << ") wurde geloscht!";
+    else
+        cout << "Frucht nicht gefunden";
+    cout << endl;
 }
 
 void FruitUI::searchProduct() const {
-    printTitle("Produkte suchen");
+    Widgets::printTitle("Produkte suchen");
     cout << "Schlusselwort eingeben ->";
     string searchKey;
     cin.ignore();
@@ -242,22 +150,12 @@ void FruitUI::searchProduct() const {
         return;
     }
 
-    // Sort matches by name attribute:
-    sort(matches.begin(), matches.end(), [](const Fruit &fruit1, const Fruit &fruit2) {
-        return fruit1.getName() < fruit2.getName();
-    });
-
     // Print matches as table
-    vector<vector<string>> lines;
-    lines.reserve(matches.size());
-    for (const Fruit &fruit: matches)
-        lines.emplace_back(fruit.toList());
-
-    tableView(lines, MAX_LINE_WIDTH);
+    Widgets::tableView(matches);
 }
 
 void FruitUI::printScarceProducts() const {
-    printTitle("Knappe Produkte");
+    Widgets::printTitle("Knappe Produkte");
 
     int threshold;
     cout << "Grenzwert eingeben ->";
@@ -269,20 +167,14 @@ void FruitUI::printScarceProducts() const {
         return;
     }
 
-    // Sort matches by name attribute:
-    sort(matches.begin(), matches.end(), [](const Fruit &fruit1, const Fruit &fruit2) {
-        return fruit1.getName() < fruit2.getName();
-    });
-
     // Print matches as table
-    vector<vector<string>> lines;
-    lines.reserve(matches.size());
-    for (const Fruit &fruit: matches)
-        lines.emplace_back(fruit.toList());
-
-    tableView(lines, MAX_LINE_WIDTH);
+    Widgets::tableView(matches);
 }
 
 void FruitUI::sortByExpiryDate() const {
-    printTitle("produkte nach Haltbarkeitsdatum");
+    Widgets::printTitle("produkte nach Haltbarkeitsdatum");
+    vector<Fruit> list = controller->sortByExpiryDate();
+
+    // Print list as table
+    Widgets::tableView(list);
 }

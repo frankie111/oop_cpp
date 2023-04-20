@@ -23,6 +23,8 @@ public:
 
     [[nodiscard]] vector<Fruit> findScarce(int threshold) const;
 
+    [[nodiscard]] vector<Fruit> sortByExpiryDate() const;
+
 };
 
 
