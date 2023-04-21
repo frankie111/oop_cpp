@@ -7,6 +7,8 @@ FruitRepo::FruitRepo() {
     fruitList.emplace_back("Kiwi", "Neuseeland", "16-12-2024", 800, 6);
     fruitList.emplace_back("Traube", "Frankreich", "08-03-2025", 1500, 7);
     fruitList.emplace_back("Ananas", "Hawaii", "30-06-2025", 500, 8);
+    fruitList.emplace_back("Honeycrisp Apple", "United States", "15-05-2023", 1300, 5);
+    fruitList.emplace_back("Valencia Orange", "Spain", "22-09-2024", 2000, 4);
     fruitList.emplace_back("Wassermelone", "USA", "10-08-2024", 700, 10);
     fruitList.emplace_back("Erdbeere", "Deutschland", "01-05-2025", 1200, 5.5);
     fruitList.emplace_back("Mango", "Indien", "19-07-2024", 900, 4.5);
