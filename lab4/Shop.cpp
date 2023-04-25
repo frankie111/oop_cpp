@@ -2,6 +2,7 @@
 #include "UI/FruitUI.h"
 
 using namespace std;
+using namespace ui;
 
 int main() {
     unique_ptr<FruitRepo> repoPtr = make_unique<FruitRepo>();

@@ -5,27 +5,32 @@
 #include <vector>
 #include "../Domain/Fruit.h"
 
-class FruitRepo {
-private:
-    vector<Fruit> fruitList{};
-public:
-    explicit FruitRepo();
+using namespace domain;
 
-    void add(const Fruit &fruit);
+namespace repo {
 
-    bool remove(const Fruit &fruit);
+    class FruitRepo {
+    private:
+        vector<Fruit> fruitList{};
+    public:
+        explicit FruitRepo();
 
-    void remove(int index);
+        void add(const Fruit &fruit);
 
-    void update(int index, const Fruit &newFruit);
+        bool remove(const Fruit &fruit);
 
-    int getIndexOf(const Fruit &fruit);
+        void remove(int index);
 
-    Fruit getFruitAtIndex(int index);
+        void update(int index, const Fruit &newFruit);
 
-    vector<Fruit> getAll();
+        int getIndexOf(const Fruit &fruit);
 
-};
+        Fruit getFruitAtIndex(int index);
+
+        vector<Fruit> getAll();
+
+    };
+}
 
 
 #endif //LAB4_FRUITREPO_H

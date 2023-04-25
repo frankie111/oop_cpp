@@ -4,27 +4,30 @@
 #include "../Repository/FruitRepo.h"
 
 using namespace std;
+using namespace repo;
 
-class FruitController {
-private:
-    unique_ptr<FruitRepo> repo;
+namespace controller {
 
-public:
-    explicit FruitController(unique_ptr<FruitRepo> _repo);
+    class FruitController {
+    private:
+        unique_ptr<FruitRepo> repo;
 
-    void add(const string &name, const string &origin,
-             const time_t &expiryDate, int quantity, int price
-    );
+    public:
+        explicit FruitController(unique_ptr<FruitRepo> _repo);
 
-    bool remove(const string &name, const string &origin);
+        void add(const string &name, const string &origin,
+                 const time_t &expiryDate, int quantity, int price
+        );
 
-    [[nodiscard]] vector<Fruit> find(const string &keyWord = "") const;
+        bool remove(const string &name, const string &origin);
 
-    [[nodiscard]] vector<Fruit> findScarce(int threshold) const;
+        [[nodiscard]] vector<Fruit> find(const string &keyWord = "") const;
 
-    [[nodiscard]] vector<Fruit> sortByExpiryDate() const;
+        [[nodiscard]] vector<Fruit> findScarce(int threshold) const;
 
-};
+        [[nodiscard]] vector<Fruit> sortByExpiryDate() const;
 
+    };
 
+}
 #endif //LAB4_FRUITCONTROLLER_H

@@ -4,30 +4,34 @@
 #include "../Controller/FruitController.h"
 
 using namespace std;
+using namespace controller;
 
-class FruitUI {
-    friend class Widgets;
+namespace ui {
 
-private:
+    class FruitUI {
+        friend class Widgets;
 
-    unique_ptr<FruitController> controller;
-    static const int MAX_LINE_WIDTH = 100;
+    private:
 
-public:
-    explicit FruitUI(unique_ptr<FruitController> _controller);
+        unique_ptr<FruitController> controller;
+        static const int MAX_LINE_WIDTH = 100;
 
-    void mainMenu() const;
+    public:
+        explicit FruitUI(unique_ptr<FruitController> _controller);
 
-    void addProduct() const;
+        void mainMenu() const;
 
-    void deleteProduct() const;
+        void addProduct() const;
 
-    void searchProduct() const;
+        void deleteProduct() const;
 
-    void printScarceProducts() const;
+        void searchProduct() const;
 
-    void sortByExpiryDate() const;
-};
+        void printScarceProducts() const;
 
+        void sortByExpiryDate() const;
+    };
+
+}
 
 #endif //LAB4_FRUITUI_H

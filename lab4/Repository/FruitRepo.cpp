@@ -1,5 +1,7 @@
 #include "FruitRepo.h"
 
+using namespace repo;
+
 FruitRepo::FruitRepo() {
     fruitList.emplace_back("Apfel", "Rumanien", "15-05-2023", 1300, 5);
     fruitList.emplace_back("Orange", "Spanien", "22-09-2024", 2000, 4);
@@ -16,7 +18,7 @@ FruitRepo::FruitRepo() {
     fruitList.emplace_back("Apfel", "Deutschland", "02-10-2024", 1100, 3);
     fruitList.emplace_back("Birne", "Deutschland", "09-11-2025", 800, 4);
 
-};
+}
 
 /**
  * Add a Fruit item to fruitList

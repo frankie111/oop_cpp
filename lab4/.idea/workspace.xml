@@ -20,9 +20,20 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e4c2525-1fad-4e4b-9225-2622726d624d" name="Changes" comment="lab4: Add smart pointers">
+    <list default="true" id="5e4c2525-1fad-4e4b-9225-2622726d624d" name="Changes" comment="lab4: add examples">
+      <change beforePath="$PROJECT_DIR$/../lab3/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/../lab3/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/FruitController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/FruitController.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/FruitController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/FruitController.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Fruit.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Fruit.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/Fruit.h" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Fruit.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Repository/FruitRepo.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Repository/FruitRepo.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Repository/FruitRepo.h" beforeDir="false" afterPath="$PROJECT_DIR$/Repository/FruitRepo.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shop.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Shop.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/FruitUI.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/UI/FruitUI.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/FruitUI.h" beforeDir="false" afterPath="$PROJECT_DIR$/UI/FruitUI.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/Widgets.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/UI/Widgets.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +78,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Batch.compile_run">
+  <component name="RunManager" selected="CMake Application.lab4">
     <configuration name="compile_run" type="BatchConfigurationType" factoryName="Batch" temporary="true">
       <module name="lab4" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -111,7 +122,10 @@
       <workItem from="1681914532627" duration="16011000" />
       <workItem from="1681932765059" duration="611000" />
       <workItem from="1682000670473" duration="8185000" />
-      <workItem from="1682080548132" duration="124000" />
+      <workItem from="1682080548132" duration="198000" />
+      <workItem from="1682438187272" duration="1400000" />
+      <workItem from="1682439857492" duration="622000" />
+      <workItem from="1682451852415" duration="984000" />
     </task>
     <task id="LOCAL-00001" summary="lab4: Start working on UI">
       <created>1681408909671</created>
@@ -190,7 +204,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682008205019</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="lab4: add examples">
+      <created>1682080729183</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1682080729183</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -225,7 +246,8 @@
     <MESSAGE value="lab4: Add word clipping to tableView" />
     <MESSAGE value="lab4: Add Widgets.cpp and solve getline bug in FruitUI.cpp" />
     <MESSAGE value="lab4: Add smart pointers" />
-    <option name="LAST_COMMIT_MESSAGE" value="lab4: Add smart pointers" />
+    <MESSAGE value="lab4: add examples" />
+    <option name="LAST_COMMIT_MESSAGE" value="lab4: add examples" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -6,53 +6,55 @@
 
 using namespace std;
 
-class Fruit {
-private:
-    string name;
-    string origin;
-    time_t expiryDate;
-    int quantity;
-    int price;
+namespace domain {
 
-public:
-    Fruit(string name, string origin, time_t expiryDate = 0, int quantity = 0, int price = 0);
+    class Fruit {
+    private:
+        string name;
+        string origin;
+        time_t expiryDate;
+        int quantity;
+        int price;
 
-    Fruit(string name, string origin, const string &expiryDate, int quantity = 0, int price = 0);
+    public:
+        Fruit(string name, string origin, time_t expiryDate = 0, int quantity = 0, int price = 0);
 
-    [[nodiscard]] string getName() const;
+        Fruit(string name, string origin, const string &expiryDate, int quantity = 0, int price = 0);
 
-    [[nodiscard]] string getOrigin() const;
+        [[nodiscard]] string getName() const;
 
-    [[nodiscard]] time_t getExpiryDate() const;
+        [[nodiscard]] string getOrigin() const;
 
-    [[nodiscard]] string getExpiryDateStr() const;
+        [[nodiscard]] time_t getExpiryDate() const;
 
-    [[nodiscard]] int getQuantity() const;
+        [[nodiscard]] string getExpiryDateStr() const;
 
-    [[nodiscard]] int getPrice() const;
+        [[nodiscard]] int getQuantity() const;
 
-    void setName(const string &_name);
+        [[nodiscard]] int getPrice() const;
 
-    void setOrigin(const string &_origin);
+        void setName(const string &_name);
 
-    void setExpiryDate(time_t _expiryDate);
+        void setOrigin(const string &_origin);
 
-    void setExpiryDate(const string &_expiryDate);
+        void setExpiryDate(time_t _expiryDate);
 
-    void setQuantity(int quantity);
+        void setExpiryDate(const string &_expiryDate);
 
-    void setPrice(int price);
+        void setQuantity(int quantity);
 
-    bool operator==(const Fruit &other) const;
+        void setPrice(int price);
 
-    bool operator!=(const Fruit &other) const;
+        bool operator==(const Fruit &other) const;
 
-    void print() const;
+        bool operator!=(const Fruit &other) const;
 
-    [[nodiscard]] string toString() const;
+        void print() const;
 
-    [[nodiscard]] vector<string> toList() const;
-};
+        [[nodiscard]] string toString() const;
 
+        [[nodiscard]] vector<string> toList() const;
+    };
 
+}
 #endif //LAB4_FRUIT_H

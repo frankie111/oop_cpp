@@ -1,5 +1,7 @@
 #include "Fruit.h"
 
+using namespace domain;
+
 
 Fruit::Fruit(string name,
              string origin,
