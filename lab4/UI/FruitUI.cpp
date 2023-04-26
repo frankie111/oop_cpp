@@ -12,7 +12,7 @@ FruitUI::FruitUI(unique_ptr<FruitController> _controller) {
  */
 void FruitUI::mainMenu() const {
     Widgets::printTitle("Fruchteladen App");
-    vector<string> options = {"hinzufugen", "loschen", "suchen", "knappe Produkte auslisten",
+    vector<string> options = {"Hinzufugen", "Loschen", "Suchen", "Knappe Produkte auslisten",
                               "Sortiere nach Haltbarkeitsdatum", "Beenden"};
     int option = Widgets::menu("Main Menu", options);
 
