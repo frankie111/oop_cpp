@@ -20,14 +20,11 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e4c2525-1fad-4e4b-9225-2622726d624d" name="Changes" comment="lab4: add namespaces">
-      <change afterPath="$PROJECT_DIR$/../lab3.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab3/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/../lab3/cmake-build-debug/.ninja_deps" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab3/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/../lab3/cmake-build-debug/.ninja_log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab3/cmake-build-debug/CMakeFiles/lab3.dir/L3_Rautoiu_Mircea_DSM_test.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../lab3/cmake-build-debug/CMakeFiles/lab3.dir/L3_Rautoiu_Mircea_DSM_test.cpp.obj" afterDir="false" />
+    <list default="true" id="5e4c2525-1fad-4e4b-9225-2622726d624d" name="Changes" comment="lab4: cleanup">
       <change beforePath="$PROJECT_DIR$/../lab3/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/../lab3/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab3/cmake-build-debug/lab3.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../lab3/cmake-build-debug/lab3.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shop.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Shop.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,7 +117,9 @@
       <workItem from="1682438187272" duration="1400000" />
       <workItem from="1682439857492" duration="622000" />
       <workItem from="1682451852415" duration="1313000" />
-      <workItem from="1682511900824" duration="1000" />
+      <workItem from="1682511900824" duration="145000" />
+      <workItem from="1682514299660" duration="2341000" />
+      <workItem from="1682594305833" duration="109000" />
     </task>
     <task id="LOCAL-00001" summary="lab4: Start working on UI">
       <created>1681408909671</created>
@@ -213,7 +212,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682453165936</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="lab4: cleanup">
+      <created>1682512034367</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1682512034367</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -250,7 +256,8 @@
     <MESSAGE value="lab4: Add smart pointers" />
     <MESSAGE value="lab4: add examples" />
     <MESSAGE value="lab4: add namespaces" />
-    <option name="LAST_COMMIT_MESSAGE" value="lab4: add namespaces" />
+    <MESSAGE value="lab4: cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="lab4: cleanup" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
