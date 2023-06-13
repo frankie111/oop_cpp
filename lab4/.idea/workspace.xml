@@ -21,10 +21,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5e4c2525-1fad-4e4b-9225-2622726d624d" name="Changes" comment="lab4: cleanup">
-      <change beforePath="$PROJECT_DIR$/../lab3/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/../lab3/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shop.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Shop.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2023-04-21T12-03-17-0735.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/lab4.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/lab4.exe" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,6 +122,9 @@
       <workItem from="1682511900824" duration="145000" />
       <workItem from="1682514299660" duration="2341000" />
       <workItem from="1682594305833" duration="109000" />
+      <workItem from="1684249145774" duration="5000" />
+      <workItem from="1684249655182" duration="2559000" />
+      <workItem from="1684253678329" duration="4199000" />
     </task>
     <task id="LOCAL-00001" summary="lab4: Start working on UI">
       <created>1681408909671</created>

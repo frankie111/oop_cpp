@@ -1,0 +1,7 @@
+# ninja log v5
+0	512	7066958414939741	CMakeFiles/semniar6.dir/main.cpp.obj	d7d2999716a2cf8d
+4	811	7066958417930948	CMakeFiles/semniar6.dir/ClientInMemoryRepository.cpp.obj	8bcdf63e3dd6bb92
+9	849	7066958418311029	CMakeFiles/semniar6.dir/ClientController.cpp.obj	436dcf9afb6cd59c
+2	718	7066972955130478	CMakeFiles/semniar6.dir/ClientInMemoryRepository.cpp.obj	8bcdf63e3dd6bb92
+2	685	7066980832084947	CMakeFiles/semniar6.dir/ClientInMemoryRepository.cpp.obj	8bcdf63e3dd6bb92
+686	798	7066980833195028	semniar6.exe	c820b1f4bee6710b
