@@ -8,16 +8,16 @@
 
 using namespace std;
 
-template<typename MAMA_LU_CRISTI>
+template<typename T>
 class Vector3D {
 private:
-    MAMA_LU_CRISTI x, y, z;
+    T x, y, z;
 public:
     string asText() {
         return to_string(x) + " " + to_string(y) + " " + to_string(z);
     };
 
-    Vector3D(MAMA_LU_CRISTI _x, MAMA_LU_CRISTI _y, MAMA_LU_CRISTI _z) {
+    Vector3D(T _x, T _y, T _z) {
         x = _x;
         y = _y;
         z = _z;
@@ -30,15 +30,15 @@ public:
     }
 };
 
-template<typename BUNSA_LU_DADU>
+template<typename T>
 class Particle {
 private:
-    Vector3D<BUNSA_LU_DADU> position;
+    Vector3D<T> position;
     int speed, mass;
     string timeStamp;
 
 public:
-    Particle(Vector3D <BUNSA_LU_DADU> _position, int _speed, int _mass, string _timeStamp) {
+    Particle(Vector3D <T> _position, int _speed, int _mass, string _timeStamp) {
         position = _position;
         speed = _speed;
         mass = _mass;
@@ -50,7 +50,7 @@ public:
     }
 };
 
-void addBunsa(){
+void addParticles(){
     vector<Particle<int>> particles{
             {Vector3D<int>(1, 2, 3), 4, 5, "6"},
             {Vector3D<int>(7, 8, 9), 10, 11, "12"},

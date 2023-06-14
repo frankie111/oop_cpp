@@ -1,12 +1,12 @@
+#ifndef MODELE_P5_H
+#define MODELE_P5_H
+
 #include <iostream>
 #include <string>
 #include <algorithm>
 #include <vector>
 
 using namespace std;
-
-#ifndef MODELE_P5_H
-#define MODELE_P5_H
 
 class LibMaterial {
 private:
